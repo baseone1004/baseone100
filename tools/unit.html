@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>단위 변환기 — 길이·무게·넓이·부피·온도·데이터 | 툴노트</title>
+  <meta name="description" content="인치와 센티미터, 파운드와 킬로그램, 화씨와 섭씨를 바로 변환합니다. 돈·근·자 같은 우리 전통 단위도 함께 지원합니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/unit.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="단위 변환기 — 길이·무게·넓이·부피·온도·데이터">
+  <meta property="og:description" content="인치와 센티미터, 파운드와 킬로그램, 화씨와 섭씨를 바로 변환합니다. 돈·근·자 같은 우리 전통 단위도 함께 지원합니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/unit.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"단위 변환기 — 길이·무게·넓이·부피·온도·데이터","description":"인치와 센티미터, 파운드와 킬로그램, 화씨와 섭씨를 바로 변환합니다. 돈·근·자 같은 우리 전통 단위도 함께 지원합니다.","url":"https://baseone100.com/tools/unit.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"변환·생성","item":"https://baseone100.com/category/convert.html"},
+{"@type":"ListItem","position":3,"name":"단위 변환기","item":"https://baseone100.com/tools/unit.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html">계산기</a></li><li><a href="/category/convert.html" class="is-active">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/convert.html">변환·생성</a> <span>›</span> 단위 변환기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/convert.html">변환·생성</a></p>
+    <h1 class="post__title">단위 변환기 — 길이·무게·넓이·부피·온도·데이터</h1>
+    <p class="post__desc">인치와 센티미터, 파운드와 킬로그램, 화씨와 섭씨를 바로 변환합니다. 돈·근·자 같은 우리 전통 단위도 함께 지원합니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="unTool">
+  <div class="seg" id="unKind" style="margin-bottom:18px">
+    <button type="button" data-k="length" aria-pressed="true">길이</button>
+    <button type="button" data-k="weight" aria-pressed="false">무게</button>
+    <button type="button" data-k="area" aria-pressed="false">넓이</button>
+    <button type="button" data-k="volume" aria-pressed="false">부피</button>
+    <button type="button" data-k="temp" aria-pressed="false">온도</button>
+    <button type="button" data-k="data" aria-pressed="false">데이터</button>
+  </div>
+
+  <div class="tool__row">
+    <div class="field">
+      <label for="unValue">값</label>
+      <input type="number" id="unValue" inputmode="decimal" step="any" value="1">
+    </div>
+    <div class="field">
+      <label for="unFrom">단위</label>
+      <select id="unFrom"></select>
+    </div>
+  </div>
+
+  <div class="tool__result" id="unOut">
+    <p class="tool__headline" id="unMain"></p>
+    <p class="tool__sub">아래에서 모든 단위의 값을 한 번에 확인하세요.</p>
+    <ul class="stats" id="unStats"></ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  // 기준 단위로 환산하는 계수
+  var SETS = {
+    length: { base: 'm', units: [
+      ['mm', '밀리미터 (mm)', 0.001], ['cm', '센티미터 (cm)', 0.01],
+      ['m', '미터 (m)', 1], ['km', '킬로미터 (km)', 1000],
+      ['in', '인치 (in)', 0.0254], ['ft', '피트 (ft)', 0.3048],
+      ['yd', '야드 (yd)', 0.9144], ['mi', '마일 (mi)', 1609.344],
+      ['ja', '자 (척)', 0.303030303]
+    ]},
+    weight: { base: 'kg', units: [
+      ['mg', '밀리그램 (mg)', 0.000001], ['g', '그램 (g)', 0.001],
+      ['kg', '킬로그램 (kg)', 1], ['t', '톤 (t)', 1000],
+      ['oz', '온스 (oz)', 0.0283495231], ['lb', '파운드 (lb)', 0.45359237],
+      ['don', '돈', 0.00375], ['nyang', '냥', 0.0375], ['geun', '근 (600g)', 0.6]
+    ]},
+    area: { base: 'm2', units: [
+      ['cm2', '제곱센티미터 (㎠)', 0.0001], ['m2', '제곱미터 (㎡)', 1],
+      ['km2', '제곱킬로미터 (㎢)', 1000000], ['pyeong', '평', 400 / 121],
+      ['ha', '헥타르 (ha)', 10000], ['ac', '에이커 (ac)', 4046.8564224],
+      ['ft2', '제곱피트 (ft²)', 0.09290304]
+    ]},
+    volume: { base: 'L', units: [
+      ['mL', '밀리리터 (mL)', 0.001], ['L', '리터 (L)', 1],
+      ['m3', '세제곱미터 (m³)', 1000], ['cup', '컵 (200mL)', 0.2],
+      ['gal', '갤런 (미국)', 3.785411784], ['floz', '액량온스 (미국)', 0.0295735296]
+    ]},
+    data: { base: 'MB', units: [
+      ['KB', '킬로바이트 (KB)', 1 / 1024], ['MB', '메가바이트 (MB)', 1],
+      ['GB', '기가바이트 (GB)', 1024], ['TB', '테라바이트 (TB)', 1048576]
+    ]},
+    temp: { base: 'C', units: [
+      ['C', '섭씨 (°C)', null], ['F', '화씨 (°F)', null], ['K', '켈빈 (K)', null]
+    ]}
+  };
+
+  var kind = 'length';
+
+  function toBase(k, u, v) {
+    if (k !== 'temp') {
+      var def = SETS[k].units.find(function (x) { return x[0] === u; });
+      return v * def[2];
+    }
+    if (u === 'C') return v;
+    if (u === 'F') return (v - 32) * 5 / 9;
+    return v - 273.15;
+  }
+  function fromBase(k, u, base) {
+    if (k !== 'temp') {
+      var def = SETS[k].units.find(function (x) { return x[0] === u; });
+      return base / def[2];
+    }
+    if (u === 'C') return base;
+    if (u === 'F') return base * 9 / 5 + 32;
+    return base + 273.15;
+  }
+
+  function fmt(n) {
+    if (!isFinite(n)) return '-';
+    var a = Math.abs(n);
+    if (a !== 0 && (a < 0.0001 || a >= 1e12)) return n.toExponential(4);
+    var d = a >= 1000 ? 2 : (a >= 1 ? 4 : 6);
+    return Number(n.toFixed(d)).toLocaleString('ko-KR');
+  }
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+
+  function fillUnits() {
+    var sel = $('unFrom');
+    sel.innerHTML = SETS[kind].units.map(function (u) {
+      return '<option value="' + u[0] + '">' + u[1] + '</option>';
+    }).join('');
+    sel.value = SETS[kind].base;
+  }
+
+  function calc() {
+    var v = parseFloat($('unValue').value);
+    var u = $('unFrom').value;
+    if (isNaN(v)) {
+      $('unMain').innerHTML = '<span class="tool__error">값을 입력해 주세요</span>';
+      $('unStats').innerHTML = '';
+      return;
+    }
+    var base = toBase(kind, u, v);
+    var name = SETS[kind].units.find(function (x) { return x[0] === u; })[1];
+    $('unMain').textContent = fmt(v) + ' ' + name.replace(/^.*\(|\)$/g, '');
+    $('unStats').innerHTML = SETS[kind].units.map(function (t) {
+      return row(t[1], fmt(fromBase(kind, t[0], base)));
+    }).join('');
+  }
+
+  $('unKind').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-k]');
+    if (!b) return;
+    kind = b.getAttribute('data-k');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    fillUnits();
+    calc();
+  });
+  $('unValue').addEventListener('input', calc);
+  $('unFrom').addEventListener('change', calc);
+
+  fillUnits();
+  calc();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">자주 찾는 변환값</a></li><li><a href="#section-2">온도 변환 공식</a></li><li><a href="#section-3">우리 전통 단위</a></li><li><a href="#section-4">데이터 단위 — 1KB는 1000일까 1024일까</a></li><li><a href="#section-5">미국식과 영국식이 다른 단위</a></li></ol></nav>
+      <h2 id="section-1">자주 찾는 변환값</h2>
+<p>외우고 있으면 편한 값들입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>변환</th><th>값</th></tr></thead><tbody><tr><td>1인치</td><td>2.54cm (정확히)</td></tr><tr><td>1피트</td><td>30.48cm (12인치)</td></tr><tr><td>1야드</td><td>91.44cm (3피트)</td></tr><tr><td>1마일</td><td>1.609km</td></tr><tr><td>1파운드</td><td>453.59g</td></tr><tr><td>1온스</td><td>28.35g</td></tr><tr><td>1갤런(미국)</td><td>3.785L</td></tr><tr><td>1평</td><td>3.3058㎡</td></tr></tbody></table></div>
+<h2 id="section-2">온도 변환 공식</h2>
+<p>온도는 다른 단위들과 달리 <strong>곱셈만으로 변환되지 않습니다.</strong> 0의 위치가 서로 다르기 때문에 더하고 빼는 과정이 필요합니다.</p>
+<pre><code>섭씨 → 화씨:  °F = °C × 9/5 + 32
+화씨 → 섭씨:  °C = (°F − 32) × 5/9
+섭씨 → 켈빈:  K = °C + 273.15</code></pre>
+<p>암산이 필요할 때는 <strong>&quot;두 배 하고 30을 더한다&quot;</strong>로 대략 맞출 수 있습니다. 섭씨 20도면 20 × 2 + 30 = 70도쯤, 실제로는 68도입니다.</p>
+<p>기억해두면 좋은 기준점입니다.</p>
+<ul><li><strong>−40도</strong> — 섭씨와 화씨가 같아지는 유일한 지점</li><li><strong>0°C = 32°F</strong> — 물이 어는 온도</li><li><strong>37°C ≈ 98.6°F</strong> — 사람 체온</li><li><strong>100°C = 212°F</strong> — 물이 끓는 온도</li></ul>
+<h2 id="section-3">우리 전통 단위</h2>
+<p>일상에서 여전히 쓰이는 단위들입니다.</p>
+<h3>무게</h3>
+<ul><li><strong>1돈 = 3.75g</strong> — 금은방에서 쓰는 단위입니다. 금 한 돈 시세를 계산할 때 필요합니다.</li><li><strong>1냥 = 10돈 = 37.5g</strong></li><li><strong>1근</strong> — <strong>고기는 600g, 채소나 과일은 375g</strong>으로 다릅니다. 정육점에서 &quot;한 근&quot;은 600g, 시장에서 나물 &quot;한 근&quot;은 400g 안팎을 뜻하는 경우가 많으니 살 때 확인하시는 편이 좋습니다.</li></ul>
+<h3>길이</h3>
+<ul><li><strong>1자(척) = 약 30.3cm</strong> — 한복이나 이불 치수에 쓰입니다.</li><li><strong>1치 = 약 3.03cm</strong> — 자의 1/10입니다.</li></ul>
+<h3>넓이</h3>
+<ul><li><strong>1평 = 3.3058㎡</strong> — 자세한 내용은 <a href="/tools/pyeong.html">평수 변환기</a>에 정리했습니다.</li></ul>
+<h2 id="section-4">데이터 단위 — 1KB는 1000일까 1024일까</h2>
+<p>컴퓨터 저장 용량에서 오래된 혼란입니다.</p>
+<ul><li><strong>컴퓨터(2진법) 기준</strong>: 1KB = 1,024바이트</li><li><strong>저장장치 제조사(10진법) 기준</strong>: 1KB = 1,000바이트</li></ul>
+<p>그래서 <strong>1TB 하드디스크를 윈도우에 연결하면 931GB로 표시됩니다.</strong> 용량을 속인 게 아니라 세는 방식이 다를 뿐입니다. 1조 바이트를 1,024로 세 번 나누면 931이 나옵니다.</p>
+<p>국제 표준에서는 1,024 기준을 <strong>KiB(키비바이트), MiB, GiB</strong>로 따로 표기하도록 정했지만, 실제로는 여전히 KB, MB, GB가 두 의미로 혼용됩니다.</p>
+<p>위 계산기의 데이터 변환은 <strong>1,024 기준(컴퓨터 방식)</strong>을 씁니다.</p>
+<h2 id="section-5">미국식과 영국식이 다른 단위</h2>
+<p>부피 단위는 미국과 영국이 다릅니다.</p>
+<ul><li><strong>1갤런</strong>: 미국 3.785L, 영국 4.546L</li><li><strong>1액량온스</strong>: 미국 약 29.57mL, 영국 약 28.41mL</li></ul>
+<p>해외 레시피를 볼 때 주의해야 하는 부분입니다. 위 계산기는 <strong>미국 기준</strong>을 씁니다.</p>
+<p>요리에서 쓰는 <strong>1컵</strong>도 나라마다 다릅니다. 한국과 일본은 200mL, 미국은 약 237mL, 국제 표준은 250mL입니다. 계산기는 한국에서 흔히 쓰는 200mL 기준입니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a><a class="quick" href="/tools/percent.html">퍼센트 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

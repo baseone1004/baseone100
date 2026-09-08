@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>툴노트</title>
+  <link>https://baseone100.com/</link>
+  <description>만 나이, 대출 이자, 평수 변환, 글자 수 세기까지 자주 찾는 계산기를 설치 없이 바로 쓰고, 계산 기준까지 함께 확인하세요.</description>
+  <language>ko</language>
+  <item>
+    <title>연봉 실수령액 계산기 — 4대보험과 세금 뗀 실제 월급</title>
+    <link>https://baseone100.com/tools/salary.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/salary.html</guid>
+    <description>연봉을 넣으면 국민연금·건강보험·고용보험과 소득세를 뺀 월 실수령액을 계산합니다. 공제 항목별 금액과 계산 근거를 모두 공개합니다.</description>
+    <pubDate>Tue, 18 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>랜덤 뽑기 — 이름 추첨, 순서 정하기, 조 나누기</title>
+    <link>https://baseone100.com/tools/random.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/random.html</guid>
+    <description>이름을 넣고 당첨자를 뽑거나, 발표 순서를 섞거나, 인원을 조로 나눕니다. 숫자 범위에서 무작위로 뽑는 기능도 있습니다.</description>
+    <pubDate>Fri, 14 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>QR 코드 생성기 — 주소·문장을 QR로 만들고 PNG 저장</title>
+    <link>https://baseone100.com/tools/qr.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/qr.html</guid>
+    <description>링크나 문장을 넣으면 QR 코드를 만들어 PNG 파일로 저장할 수 있습니다. 인쇄용 크기 선택과 오류 복원 수준 설정도 지원합니다.</description>
+    <pubDate>Sun, 09 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>비밀번호 생성기 — 안전한 무작위 비밀번호 만들기</title>
+    <link>https://baseone100.com/tools/password.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/password.html</guid>
+    <description>길이와 문자 종류를 골라 안전한 비밀번호를 만듭니다. 브라우저 안에서만 생성되며 서버로 전송되지 않습니다.</description>
+    <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>단위 변환기 — 길이·무게·넓이·부피·온도·데이터</title>
+    <link>https://baseone100.com/tools/unit.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/unit.html</guid>
+    <description>인치와 센티미터, 파운드와 킬로그램, 화씨와 섭씨를 바로 변환합니다. 돈·근·자 같은 우리 전통 단위도 함께 지원합니다.</description>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>BMI 계산기 — 체질량지수와 표준 체중</title>
+    <link>https://baseone100.com/tools/bmi.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/bmi.html</guid>
+    <description>키와 몸무게로 체질량지수를 계산하고 대한비만학회 기준으로 판정합니다. 표준 체중과 정상 범위 체중, BMI의 한계까지 함께 설명합니다.</description>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>퍼센트 계산기 — 비율, 증감률, 할인가 한 번에</title>
+    <link>https://baseone100.com/tools/percent.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/percent.html</guid>
+    <description>A의 B%, A는 B의 몇 %, 증가율과 감소율, 할인가를 각각 계산합니다. %와 %p의 차이처럼 헷갈리는 부분도 정리했습니다.</description>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>근무시간 계산기 — 실 근무시간과 연장·야간수당</title>
+    <link>https://baseone100.com/tools/worktime.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/worktime.html</guid>
+    <description>출퇴근 시각과 휴게시간을 넣으면 실제 근무시간과 연장·야간 가산수당을 계산합니다. 휴게시간 법정 기준과 5인 미만 사업장 예외도 정리했습니다.</description>
+    <pubDate>Mon, 20 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>글자 수 세기 — 공백 포함·제외, 바이트, 원고지 매수</title>
+    <link>https://baseone100.com/tools/charcount.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/charcount.html</guid>
+    <description>자기소개서나 원고를 붙여 넣으면 공백 포함·제외 글자 수, 바이트, 단어 수, 원고지 매수를 실시간으로 세어 줍니다.</description>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>평수 변환기 — 제곱미터(㎡)와 평 상호 변환</title>
+    <link>https://baseone100.com/tools/pyeong.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/pyeong.html</guid>
+    <description>제곱미터를 평으로, 평을 제곱미터로 바로 바꿉니다. 34평인데 전용면적이 84㎡인 이유와 공급면적·전용면적의 차이도 함께 정리했습니다.</description>
+    <pubDate>Tue, 14 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>날짜 계산기 — 두 날짜 사이 일수와 D-day 세기</title>
+    <link>https://baseone100.com/tools/dday.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/dday.html</guid>
+    <description>두 날짜 사이가 며칠인지, D-day까지 얼마나 남았는지, 오늘부터 100일 뒤가 언제인지 한 번에 계산합니다.</description>
+    <pubDate>Sat, 11 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>적금·예금 이자 계산기 — 만기에 실제로 받는 금액</title>
+    <link>https://baseone100.com/tools/savings.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/savings.html</guid>
+    <description>월 납입액과 금리를 넣으면 세금을 뺀 만기 수령액을 계산합니다. 연 4% 적금인데 이자가 생각보다 적은 이유도 함께 설명합니다.</description>
+    <pubDate>Wed, 08 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>대출 이자 계산기 — 원리금균등·원금균등·만기일시 상환액 비교</title>
+    <link>https://baseone100.com/tools/loan.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/loan.html</guid>
+    <description>대출 원금과 금리, 기간을 넣으면 매달 갚는 돈과 총 이자를 계산합니다. 상환 방식 세 가지를 비교하고 회차별 상환 계획표까지 확인할 수 있습니다.</description>
+    <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>만 나이 계산기 — 생년월일로 오늘 기준 만 나이 바로 확인</title>
+    <link>https://baseone100.com/tools/age.html</link>
+    <guid isPermaLink="true">https://baseone100.com/tools/age.html</guid>
+    <description>생년월일을 넣으면 만 나이, 연 나이, 세는 나이를 한 번에 계산합니다. 살아온 날짜와 다음 생일까지 남은 일수도 함께 알려드립니다.</description>
+    <pubDate>Thu, 02 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>프린터가 &quot;오프라인&quot;으로 뜰 때 점검하는 순서</title>
+    <link>https://baseone100.com/posts/printer-offline.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/printer-offline.html</guid>
+    <description>프린터는 켜져 있는데 컴퓨터에서만 오프라인으로 보이는 상황을 해결하는 순서입니다. 드라이버를 다시 깔기 전에 확인할 것들부터 정리했습니다.</description>
+    <pubDate>Thu, 03 Sep 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>새 폰으로 데이터 옮기기 — 옮기기 전에 준비할 것부터</title>
+    <link>https://baseone100.com/posts/phone-transfer.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/phone-transfer.html</guid>
+    <description>기기 변경 전에 미리 챙겨야 할 것과, 안드로이드·아이폰 조합별 이전 방법을 정리했습니다. 자동으로 안 옮겨지는 카카오톡 대화와 인증 앱이 핵심입니다.</description>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>매일 쓰게 되는 윈도우 단축키만 골랐습니다</title>
+    <link>https://baseone100.com/posts/windows-shortcuts.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/windows-shortcuts.html</guid>
+    <description>외울 만한 가치가 있는 단축키만 상황별로 정리했습니다. 창 정렬, 캡처, 이모지, 잘못 지운 파일 되살리기까지 실제로 손에 붙는 것들입니다.</description>
+    <pubDate>Thu, 20 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>사진 백업 방법 비교 — 구글 포토, 아이클라우드, 외장 저장</title>
+    <link>https://baseone100.com/posts/photo-backup.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/photo-backup.html</guid>
+    <description>스마트폰 사진을 어디에 어떻게 백업할지 방식별로 비교했습니다. 무료 용량, 원본 화질 여부, 계정을 잃었을 때의 위험까지 함께 봅니다.</description>
+    <pubDate>Thu, 13 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>윈도우 백업 3가지 방식 비교와, 나에게 맞는 것 고르기</title>
+    <link>https://baseone100.com/posts/windows-backup.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/windows-backup.html</guid>
+    <description>파일 백업, 시스템 이미지, 클라우드 동기화는 목적이 다릅니다. 각각 무엇을 지켜주고 무엇을 못 지키는지, 어떤 조합으로 쓰면 좋은지 정리했습니다.</description>
+    <pubDate>Thu, 06 Aug 2026 00:00:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>스마트폰 저장 공간 정리, 뭘 지워야 안전한가</title>
+    <link>https://baseone100.com/posts/phone-storage.html</link>
+    <guid isPermaLink="true">https://baseone100.com/posts/phone-storage.html</guid>
+    <description>저장 공간 부족 알림이 뜰 때 무엇부터 지워야 할지 정리했습니다. 캐시와 데이터의 차이, 카카오톡 정리법, 지우면 안 되는 것까지 다룹니다.</description>
+    <pubDate>Thu, 23 Jul 2026 00:00:00 +0900</pubDate>
+  </item>
+</channel></rss>

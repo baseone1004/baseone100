@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>적금·예금 이자 계산기 — 만기에 실제로 받는 금액 | 툴노트</title>
+  <meta name="description" content="월 납입액과 금리를 넣으면 세금을 뺀 만기 수령액을 계산합니다. 연 4% 적금인데 이자가 생각보다 적은 이유도 함께 설명합니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/savings.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="적금·예금 이자 계산기 — 만기에 실제로 받는 금액">
+  <meta property="og:description" content="월 납입액과 금리를 넣으면 세금을 뺀 만기 수령액을 계산합니다. 연 4% 적금인데 이자가 생각보다 적은 이유도 함께 설명합니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/savings.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"적금·예금 이자 계산기 — 만기에 실제로 받는 금액","description":"월 납입액과 금리를 넣으면 세금을 뺀 만기 수령액을 계산합니다. 연 4% 적금인데 이자가 생각보다 적은 이유도 함께 설명합니다.","url":"https://baseone100.com/tools/savings.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"계산기","item":"https://baseone100.com/category/calc.html"},
+{"@type":"ListItem","position":3,"name":"적금 이자 계산기","item":"https://baseone100.com/tools/savings.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html" class="is-active">계산기</a></li><li><a href="/category/convert.html">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/calc.html">계산기</a> <span>›</span> 적금 이자 계산기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/calc.html">계산기</a></p>
+    <h1 class="post__title">적금·예금 이자 계산기 — 만기에 실제로 받는 금액</h1>
+    <p class="post__desc">월 납입액과 금리를 넣으면 세금을 뺀 만기 수령액을 계산합니다. 연 4% 적금인데 이자가 생각보다 적은 이유도 함께 설명합니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="svTool">
+  <div class="seg" id="svMode" style="margin-bottom:18px">
+    <button type="button" data-m="install" aria-pressed="true">적금 (매달 넣기)</button>
+    <button type="button" data-m="deposit" aria-pressed="false">예금 (한 번에 맡기기)</button>
+  </div>
+
+  <div class="tool__row">
+    <div class="field">
+      <label for="svAmount" id="svAmountLabel">월 납입액 (만원)</label>
+      <input type="number" id="svAmount" inputmode="numeric" step="any" value="50">
+    </div>
+    <div class="field">
+      <label for="svRate">연 이자율 (%)</label>
+      <input type="number" id="svRate" inputmode="decimal" step="any" value="3.5">
+    </div>
+    <div class="field">
+      <label for="svMonths">기간 (개월)</label>
+      <input type="number" id="svMonths" inputmode="numeric" step="1" value="12">
+    </div>
+  </div>
+
+  <div class="tool__row" style="margin-top:16px">
+    <div class="field">
+      <span class="field__label">이자 계산</span>
+      <div class="seg" id="svType">
+        <button type="button" data-t="simple" aria-pressed="true">단리</button>
+        <button type="button" data-t="compound" aria-pressed="false">월복리</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="field__label">과세</span>
+      <div class="seg" id="svTax">
+        <button type="button" data-x="15.4" aria-pressed="true">일반 15.4%</button>
+        <button type="button" data-x="9.5" aria-pressed="false">세금우대 9.5%</button>
+        <button type="button" data-x="0" aria-pressed="false">비과세</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool__result" id="svOut">
+    <p class="tool__headline" id="svMain"></p>
+    <p class="tool__sub" id="svSub"></p>
+    <ul class="stats" id="svStats"></ul>
+    <p class="tool__note" id="svNote"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var mode = 'install', type = 'simple', tax = 15.4;
+
+  var won = function (n) { return Math.round(n).toLocaleString('ko-KR') + '원'; };
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+
+  function calc() {
+    var amt = (parseFloat($('svAmount').value) || 0) * 10000;
+    var rate = (parseFloat($('svRate').value) || 0) / 100;
+    var n = parseInt($('svMonths').value, 10) || 0;
+    if (amt <= 0 || n <= 0) {
+      $('svMain').innerHTML = '<span class="tool__error">금액과 기간을 입력해 주세요</span>';
+      $('svSub').textContent = ''; $('svStats').innerHTML = ''; $('svNote').textContent = '';
+      return;
+    }
+
+    var principal, interest;
+    if (mode === 'install') {
+      principal = amt * n;
+      if (type === 'simple') {
+        // 정액적립식 단리: 첫 회차는 n개월, 마지막 회차는 1개월치 이자
+        interest = amt * rate / 12 * (n * (n + 1) / 2);
+      } else {
+        var m = rate / 12, total = 0;
+        for (var i = 1; i <= n; i++) total += amt * Math.pow(1 + m, n - i + 1);
+        interest = total - principal;
+      }
+    } else {
+      principal = amt;
+      interest = type === 'simple'
+        ? amt * rate * (n / 12)
+        : amt * (Math.pow(1 + rate / 12, n) - 1);
+    }
+
+    var taxAmt = interest * tax / 100;
+    var net = interest - taxAmt;
+    var total = principal + net;
+
+    $('svMain').textContent = won(total);
+    $('svSub').textContent = '만기에 받는 세후 실수령액입니다.';
+    $('svStats').innerHTML =
+      row(mode === 'install' ? '납입 원금 합계' : '예치 원금', won(principal)) +
+      row('세전 이자', won(interest)) +
+      row('이자 과세 (' + tax + '%)', '-' + won(taxAmt)) +
+      row('세후 이자', won(net)) +
+      row('세후 수령액', won(total)) +
+      row('원금 대비 수익률', (net / principal * 100).toFixed(2) + '%');
+
+    $('svNote').textContent = mode === 'install'
+      ? '적금은 매달 넣은 돈이 만기까지 남은 기간만큼만 이자가 붙습니다. 그래서 "연 ' +
+        ($('svRate').value || 0) + '%"라도 실제 수익률은 그 절반 정도로 나옵니다.'
+      : '예금은 맡긴 돈 전체가 기간 내내 이자를 받습니다.';
+  }
+
+  function segment(id, cb) {
+    $(id).addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+        x.setAttribute('aria-pressed', String(x === b));
+      });
+      cb(b);
+      calc();
+    });
+  }
+
+  segment('svMode', function (b) {
+    mode = b.getAttribute('data-m');
+    $('svAmountLabel').textContent = mode === 'install' ? '월 납입액 (만원)' : '예치 금액 (만원)';
+    if (mode === 'deposit' && $('svAmount').value === '50') $('svAmount').value = '1000';
+    if (mode === 'install' && $('svAmount').value === '1000') $('svAmount').value = '50';
+  });
+  segment('svType', function (b) { type = b.getAttribute('data-t'); });
+  segment('svTax', function (b) { tax = parseFloat(b.getAttribute('data-x')); });
+
+  ['svAmount', 'svRate', 'svMonths'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">연 4% 적금인데 왜 이자가 절반밖에 안 되나요</a></li><li><a href="#section-2">이자소득세 15.4%</a></li><li><a href="#section-3">단리와 복리</a></li><li><a href="#section-4">상품을 고를 때 확인할 것</a></li><li><a href="#section-5">적금과 예금, 어느 쪽이 유리한가</a></li></ol></nav>
+      <h2 id="section-1">연 4% 적금인데 왜 이자가 절반밖에 안 되나요</h2>
+<p>적금 가입하고 만기에 이자를 받아 보면 &quot;생각보다 훨씬 적은데?&quot; 싶은 순간이 옵니다. 착오도 사기도 아니고, <strong>적금 이자가 원래 그렇게 계산되기 때문</strong>입니다.</p>
+<p>매달 50만 원씩 12개월, 연 4% 적금을 들었다고 해봅시다. 총 납입액은 600만 원이지만, 600만 원에 4%가 붙는 게 아닙니다.</p>
+<ul><li><strong>첫 달</strong>에 넣은 50만 원 → 만기까지 12개월 남았으니 12개월치 이자</li><li><strong>둘째 달</strong>에 넣은 50만 원 → 11개월치 이자</li><li>…</li><li><strong>마지막 달</strong>에 넣은 50만 원 → 1개월치 이자만</li></ul>
+<p>즉 <strong>각 회차마다 만기까지 남은 기간만큼만</strong> 이자가 붙습니다. 평균하면 대략 절반 기간이므로, 체감 수익률도 표시 금리의 절반쯤이 됩니다.</p>
+<p>계산식으로 쓰면 이렇습니다.</p>
+<pre><code>세전 이자 = 월 납입액 × (연이율 ÷ 12) × n(n+1) ÷ 2
+n = 납입 개월 수</code></pre>
+<p><strong>예금은 다릅니다.</strong> 예금은 처음에 넣은 목돈 전체가 기간 내내 이자를 받으므로 표시 금리가 그대로 반영됩니다. 그래서 같은 금리라면 예금이 훨씬 유리해 보이지만, 애초에 목돈이 있어야 가능하다는 차이가 있습니다.</p>
+<h2 id="section-2">이자소득세 15.4%</h2>
+<p>이자를 받을 때 세금이 원천징수됩니다. 일반 과세는 <strong>15.4%</strong>이고, 이는 다음으로 나뉩니다.</p>
+<ul><li>이자소득세 14%</li><li>지방소득세 1.4% (이자소득세의 10%)</li></ul>
+<p>즉 세전 이자가 10만 원이면 15,400원을 떼고 84,600원을 받습니다. 위 계산기는 이 세금을 반영한 <strong>세후 실수령액</strong>을 보여줍니다.</p>
+<h3>세금을 줄일 수 있는 경우</h3>
+<div class="table-wrap"><table><thead><tr><th>구분</th><th>세율</th><th>대상</th></tr></thead><tbody><tr><td>일반 과세</td><td>15.4%</td><td>대부분의 예·적금</td></tr><tr><td>세금우대</td><td>9.5%</td><td>조합·금고 등 조건 충족 시</td></tr><tr><td>비과세</td><td>0%</td><td>비과세종합저축 등 자격 요건 충족 시</td></tr></tbody></table></div>
+<p>세금우대와 비과세는 <strong>가입 자격과 한도가 정해져 있습니다.</strong> 만 65세 이상, 장애인, 기초생활수급자 등 요건이 있고 한도도 제한되므로 해당하실 것 같다면 금융기관에 직접 문의해 보세요.</p>
+<aside class="callout callout--note"><p class="callout__title">금융소득 2천만 원</p><p>한 해 이자와 배당을 합쳐 2천만 원을 넘으면 <strong>금융소득종합과세</strong> 대상이 되어 다른 소득과 합산해 다시 계산합니다. 이 계산기는 그 부분까지는 다루지 않습니다.</p></aside>
+<h2 id="section-3">단리와 복리</h2>
+<ul><li><strong>단리</strong> — 원금에만 이자가 붙습니다. 대부분의 시중은행 적금이 여기 해당합니다.</li><li><strong>복리</strong> — 붙은 이자에 다시 이자가 붙습니다. 기간이 길수록 차이가 커집니다.</li></ul>
+<p>1년짜리 상품에서는 단리와 복리 차이가 거의 없습니다. <strong>3년 이상 장기 상품</strong>에서 의미가 생기므로, 상품 설명서에 단리인지 복리인지, 복리라면 월복리인지 연복리인지 확인해 보세요.</p>
+<h2 id="section-4">상품을 고를 때 확인할 것</h2>
+<ul><li><strong>우대금리 조건</strong> — 광고에 나온 &quot;최고 연 6%&quot;는 대개 급여이체, 카드 실적, 첫 거래 등 조건을 모두 채웠을 때입니다. <strong>기본금리</strong>가 실제 받을 확률이 높은 숫자입니다.</li><li><strong>중도 해지 이율</strong> — 만기 전에 깨면 약정 금리가 아니라 훨씬 낮은 중도해지이율이 적용됩니다. 대개 연 0.1~1% 수준입니다.</li><li><strong>자동이체 날짜</strong> — 납입일을 놓치면 우대금리 조건이 깨질 수 있습니다.</li><li><strong>예금자보호</strong> — 금융회사별로 원금과 이자를 합쳐 1인당 보호 한도가 정해져 있습니다. 한도를 넘는 금액은 여러 금융회사에 나누는 편이 안전합니다.</li></ul>
+<h2 id="section-5">적금과 예금, 어느 쪽이 유리한가</h2>
+<p>목돈이 이미 있다면 <strong>예금</strong>이 유리합니다. 전액이 기간 내내 이자를 받으니까요.</p>
+<p>매달 모아가는 상황이라면 <strong>적금</strong>이 맞습니다. 이자는 적어도 강제 저축 효과가 있습니다.</p>
+<p>목돈이 있는데 굳이 적금에 매달 나눠 넣을 이유는 없습니다. 그럴 바에는 예금에 한 번에 넣는 편이 이자가 많습니다. 위 계산기에서 같은 총액으로 적금과 예금을 각각 계산해 비교해 보시면 차이가 바로 보입니다.</p>
+<p>이 계산기는 참고용이며, 실제 지급액은 금융기관의 일수 계산 방식에 따라 소액 차이가 날 수 있습니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

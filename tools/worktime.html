@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>근무시간 계산기 — 실 근무시간과 연장·야간수당 | 툴노트</title>
+  <meta name="description" content="출퇴근 시각과 휴게시간을 넣으면 실제 근무시간과 연장·야간 가산수당을 계산합니다. 휴게시간 법정 기준과 5인 미만 사업장 예외도 정리했습니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/worktime.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="근무시간 계산기 — 실 근무시간과 연장·야간수당">
+  <meta property="og:description" content="출퇴근 시각과 휴게시간을 넣으면 실제 근무시간과 연장·야간 가산수당을 계산합니다. 휴게시간 법정 기준과 5인 미만 사업장 예외도 정리했습니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/worktime.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"근무시간 계산기 — 실 근무시간과 연장·야간수당","description":"출퇴근 시각과 휴게시간을 넣으면 실제 근무시간과 연장·야간 가산수당을 계산합니다. 휴게시간 법정 기준과 5인 미만 사업장 예외도 정리했습니다.","url":"https://baseone100.com/tools/worktime.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"계산기","item":"https://baseone100.com/category/calc.html"},
+{"@type":"ListItem","position":3,"name":"근무시간 계산기","item":"https://baseone100.com/tools/worktime.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html" class="is-active">계산기</a></li><li><a href="/category/convert.html">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/calc.html">계산기</a> <span>›</span> 근무시간 계산기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/calc.html">계산기</a></p>
+    <h1 class="post__title">근무시간 계산기 — 실 근무시간과 연장·야간수당</h1>
+    <p class="post__desc">출퇴근 시각과 휴게시간을 넣으면 실제 근무시간과 연장·야간 가산수당을 계산합니다. 휴게시간 법정 기준과 5인 미만 사업장 예외도 정리했습니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="wtTool">
+  <div class="tool__row">
+    <div class="field">
+      <label for="wtIn">출근 시각</label>
+      <input type="time" id="wtIn" value="09:00">
+    </div>
+    <div class="field">
+      <label for="wtOut">퇴근 시각</label>
+      <input type="time" id="wtOut" value="18:00">
+    </div>
+    <div class="field">
+      <label for="wtBreak">휴게 시간 (분)</label>
+      <input type="number" id="wtBreak" inputmode="numeric" step="10" value="60">
+    </div>
+  </div>
+
+  <div class="tool__row" style="margin-top:16px">
+    <div class="field">
+      <label for="wtWage">시급 (원)</label>
+      <input type="number" id="wtWage" inputmode="numeric" step="10" value="10000">
+    </div>
+    <div class="field">
+      <label for="wtDays">한 달 근무 일수</label>
+      <input type="number" id="wtDays" inputmode="numeric" step="1" value="22">
+    </div>
+  </div>
+
+  <div class="checks" style="margin-top:16px">
+    <label><input type="checkbox" id="wtNight"> 밤 10시~새벽 6시 근무 포함 (야간 가산 50%)</label>
+  </div>
+
+  <div class="tool__result" id="wtOut2">
+    <p class="tool__headline" id="wtMain"></p>
+    <p class="tool__sub" id="wtSub"></p>
+    <ul class="stats" id="wtStats"></ul>
+    <p class="tool__note">
+      법정 근로시간(1일 8시간)을 넘는 시간은 연장근로로 보아 50%를 가산해 계산했습니다.
+      실제 임금은 근로계약과 회사 규정에 따라 달라질 수 있습니다.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  function mins(v) {
+    var p = (v || '').split(':');
+    if (p.length !== 2) return null;
+    return (+p[0]) * 60 + (+p[1]);
+  }
+  function hm(m) {
+    var sign = m < 0 ? '-' : '';
+    m = Math.abs(m);
+    return sign + Math.floor(m / 60) + '시간 ' + (m % 60) + '분';
+  }
+  var won = function (n) { return Math.round(n).toLocaleString('ko-KR') + '원'; };
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+
+  function nightMinutes(start, end) {
+    // 22:00~06:00 구간과 겹치는 분 수 (자정을 넘긴 근무 포함)
+    var total = 0;
+    for (var t = start; t < end; t++) {
+      var h = Math.floor((t % 1440) / 60);
+      if (h >= 22 || h < 6) total++;
+    }
+    return total;
+  }
+
+  function calc() {
+    var a = mins($('wtIn').value), b = mins($('wtOut').value);
+    var br = parseInt($('wtBreak').value, 10) || 0;
+    if (a === null || b === null) {
+      $('wtMain').innerHTML = '<span class="tool__error">출퇴근 시각을 입력해 주세요</span>';
+      $('wtSub').textContent = ''; $('wtStats').innerHTML = '';
+      return;
+    }
+    if (b <= a) b += 1440;                       // 자정을 넘긴 근무
+
+    var span = b - a;
+    var work = Math.max(span - br, 0);
+    var normal = Math.min(work, 480);            // 1일 8시간까지가 소정근로
+    var over = Math.max(work - 480, 0);
+
+    var wage = parseFloat($('wtWage').value) || 0;
+    var days = parseInt($('wtDays').value, 10) || 0;
+
+    var basePay = normal / 60 * wage;
+    var overPay = over / 60 * wage * 1.5;
+    var nightPay = 0, nightMin = 0;
+    if ($('wtNight').checked) {
+      nightMin = nightMinutes(a, b);
+      nightPay = nightMin / 60 * wage * 0.5;     // 야간 가산분만 추가
+    }
+    var daily = basePay + overPay + nightPay;
+
+    $('wtMain').textContent = hm(work);
+    $('wtSub').textContent = '휴게 시간 ' + br + '분을 뺀 하루 실제 근무시간입니다.';
+
+    var html =
+      row('체류 시간', hm(span)) +
+      row('휴게 시간', br + '분') +
+      row('실 근무시간', hm(work)) +
+      row('소정근로 (8시간 이내)', hm(normal)) +
+      row('연장근로', over ? hm(over) : '없음');
+
+    if (nightMin) html += row('야간근로 (22시~6시)', hm(nightMin));
+
+    if (wage > 0) {
+      html += row('기본 일급', won(basePay));
+      if (over) html += row('연장수당 (1.5배)', won(overPay));
+      if (nightPay) html += row('야간 가산 (0.5배)', won(nightPay));
+      html += row('하루 급여 합계', won(daily));
+      if (days > 0) {
+        html += row('한 달 예상 (' + days + '일)', won(daily * days));
+        html += row('주간 환산 (주 5일)', won(daily * 5));
+      }
+    }
+    $('wtStats').innerHTML = html;
+  }
+
+  ['wtIn', 'wtOut', 'wtBreak', 'wtWage', 'wtDays', 'wtNight'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+    $(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">체류 시간과 근무시간은 다릅니다</a></li><li><a href="#section-2">휴게시간은 법으로 정해져 있습니다</a></li><li><a href="#section-3">연장근로와 가산수당</a></li><li><a href="#section-4">주휴수당은 별도입니다</a></li><li><a href="#section-5">연장근로 한도</a></li><li><a href="#section-6">계산 결과가 회사 급여명세서와 다를 때</a></li></ol></nav>
+      <h2 id="section-1">체류 시간과 근무시간은 다릅니다</h2>
+<p>회사에 있었던 시간이 곧 근무시간은 아닙니다. <strong>휴게시간을 뺀 나머지</strong>가 임금을 받는 근로시간입니다.</p>
+<p>9시 출근, 18시 퇴근, 점심 1시간이라면 체류 9시간 − 휴게 1시간 = <strong>실 근무 8시간</strong>입니다.</p>
+<h2 id="section-2">휴게시간은 법으로 정해져 있습니다</h2>
+<p>근로기준법상 사용자는 근로시간 도중에 휴게시간을 주어야 합니다.</p>
+<ul><li><strong>4시간 근무</strong> → 30분 이상</li><li><strong>8시간 근무</strong> → 1시간 이상</li></ul>
+<p>휴게시간은 <strong>근로자가 자유롭게 쓸 수 있어야</strong> 합니다. 자리를 지키며 전화를 받아야 하거나 손님이 오면 응대해야 한다면, 그 시간은 휴게시간이 아니라 <strong>대기시간</strong>으로 보아 근로시간에 포함됩니다.</p>
+<aside class="callout callout--note"><p class="callout__title">점심시간에 일했다면</p><p>점심시간에 업무를 지시받아 일했다면 그 시간은 근로시간입니다. 계산기에 휴게시간을 넣을 때는 <strong>실제로 쉰 시간만</strong> 넣으세요.</p></aside>
+<h2 id="section-3">연장근로와 가산수당</h2>
+<p>법정 근로시간은 <strong>1일 8시간, 1주 40시간</strong>입니다. 이를 넘으면 연장근로가 되고, 통상임금의 <strong>50%를 더 줘야</strong> 합니다. 즉 시급의 1.5배입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>구분</th><th>가산율</th><th>지급 배수</th></tr></thead><tbody><tr><td>연장근로 (1일 8시간 초과)</td><td>50%</td><td>1.5배</td></tr><tr><td>야간근로 (밤 10시~새벽 6시)</td><td>50%</td><td>기본급에 0.5배 추가</td></tr><tr><td>휴일근로 (8시간 이내)</td><td>50%</td><td>1.5배</td></tr><tr><td>휴일근로 (8시간 초과분)</td><td>100%</td><td>2배</td></tr></tbody></table></div>
+<p><strong>연장근로와 야간근로가 겹치면 각각 더합니다.</strong> 평일 밤 11시까지 일했다면 그 시간은 연장 50% + 야간 50% = 통상임금의 2배가 됩니다.</p>
+<p>위 계산기는 하루 8시간을 넘는 시간을 연장근로로 보고 1.5배를 적용하며, 야간 항목을 체크하면 밤 10시~새벽 6시 구간에 0.5배를 추가로 더합니다.</p>
+<aside class="callout callout--warn"><p class="callout__title">5인 미만 사업장은 다릅니다</p><p>상시 근로자 <strong>5인 미만</strong> 사업장에는 연장·야간·휴일근로 가산수당 규정이 적용되지 않습니다. 이 경우 연장근로를 해도 가산 없이 시급 그대로만 받습니다. 본인 사업장의 상시 근로자 수를 먼저 확인하세요.</p></aside>
+<h2 id="section-4">주휴수당은 별도입니다</h2>
+<p><strong>1주 소정근로시간이 15시간 이상</strong>이고 그 주에 정해진 근무일을 모두 채웠다면 하루치 임금을 더 받는 것이 <strong>주휴수당</strong>입니다. 이건 5인 미만 사업장에도 적용됩니다.</p>
+<p>주 5일, 하루 8시간(주 40시간) 근무라면 주휴수당은 8시간분입니다. 즉 실제로는 주 48시간분의 임금을 받게 됩니다.</p>
+<p>주휴수당은 근무 형태에 따라 계산이 달라져서 이 계산기에는 넣지 않았습니다. 월급제라면 이미 월급에 포함되어 있는 경우가 대부분입니다.</p>
+<h2 id="section-5">연장근로 한도</h2>
+<p>2026년 현재 기준으로, 당사자 합의가 있어도 <strong>1주 12시간</strong>을 넘는 연장근로는 원칙적으로 할 수 없습니다. 법정 40시간 + 연장 12시간 = <strong>주 52시간</strong>이 상한입니다.</p>
+<p>특별연장근로 인가, 유연근로시간제 등 예외가 있으므로 구체적인 사안은 고용노동부나 노무사에게 확인하시기 바랍니다.</p>
+<h2 id="section-6">계산 결과가 회사 급여명세서와 다를 때</h2>
+<p>이 계산기는 근로기준법의 기본 원칙에 따른 계산입니다. 실제 급여는 다음 때문에 달라집니다.</p>
+<ul><li><strong>통상임금 산정</strong> — 각종 수당 중 무엇이 통상임금에 포함되는지에 따라 시급이 달라집니다.</li><li><strong>포괄임금제</strong> — 연장근로수당이 월급에 미리 포함된 계약이라면 별도로 지급되지 않을 수 있습니다. 다만 실제 근로시간이 약정을 넘으면 차액을 청구할 수 있습니다.</li><li><strong>4대보험과 세금</strong> — 위 계산은 세전 금액입니다.</li><li><strong>회사 취업규칙</strong> — 법정 기준보다 유리한 조건을 두었다면 그쪽이 적용됩니다.</li></ul>
+<p>임금이 제대로 지급되지 않았다고 판단되면 <strong>고용노동부 고객상담센터(국번 없이 1350)</strong>나 가까운 지방고용노동관서에 상담하실 수 있습니다.</p>
+<p>이 계산기의 결과는 참고용이며 법적 효력이 없습니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

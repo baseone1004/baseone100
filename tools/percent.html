@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>퍼센트 계산기 — 비율, 증감률, 할인가 한 번에 | 툴노트</title>
+  <meta name="description" content="A의 B%, A는 B의 몇 %, 증가율과 감소율, 할인가를 각각 계산합니다. %와 %p의 차이처럼 헷갈리는 부분도 정리했습니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/percent.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="퍼센트 계산기 — 비율, 증감률, 할인가 한 번에">
+  <meta property="og:description" content="A의 B%, A는 B의 몇 %, 증가율과 감소율, 할인가를 각각 계산합니다. %와 %p의 차이처럼 헷갈리는 부분도 정리했습니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/percent.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"퍼센트 계산기 — 비율, 증감률, 할인가 한 번에","description":"A의 B%, A는 B의 몇 %, 증가율과 감소율, 할인가를 각각 계산합니다. %와 %p의 차이처럼 헷갈리는 부분도 정리했습니다.","url":"https://baseone100.com/tools/percent.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"계산기","item":"https://baseone100.com/category/calc.html"},
+{"@type":"ListItem","position":3,"name":"퍼센트 계산기","item":"https://baseone100.com/tools/percent.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html" class="is-active">계산기</a></li><li><a href="/category/convert.html">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/calc.html">계산기</a> <span>›</span> 퍼센트 계산기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/calc.html">계산기</a></p>
+    <h1 class="post__title">퍼센트 계산기 — 비율, 증감률, 할인가 한 번에</h1>
+    <p class="post__desc">A의 B%, A는 B의 몇 %, 증가율과 감소율, 할인가를 각각 계산합니다. %와 %p의 차이처럼 헷갈리는 부분도 정리했습니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="pcTool">
+  <div class="seg" id="pcMode" style="margin-bottom:18px">
+    <button type="button" data-m="of" aria-pressed="true">A의 B%는?</button>
+    <button type="button" data-m="ratio" aria-pressed="false">A는 B의 몇%?</button>
+    <button type="button" data-m="change" aria-pressed="false">증가율·감소율</button>
+    <button type="button" data-m="discount" aria-pressed="false">할인가</button>
+  </div>
+
+  <div class="tool__row">
+    <div class="field">
+      <label for="pcA" id="pcLabelA">전체 값 (A)</label>
+      <input type="number" id="pcA" inputmode="decimal" step="any" value="50000">
+    </div>
+    <div class="field">
+      <label for="pcB" id="pcLabelB">비율 (B, %)</label>
+      <input type="number" id="pcB" inputmode="decimal" step="any" value="15">
+    </div>
+  </div>
+
+  <div class="tool__result" id="pcOut">
+    <p class="tool__headline" id="pcMain"></p>
+    <p class="tool__sub" id="pcSub"></p>
+    <ul class="stats" id="pcStats"></ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var mode = 'of';
+  var fmt = function (n) {
+    if (!isFinite(n)) return '-';
+    return Number(n.toFixed(4)).toLocaleString('ko-KR');
+  };
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+
+  var LABELS = {
+    of: ['전체 값 (A)', '비율 (B, %)'],
+    ratio: ['부분 값 (A)', '전체 값 (B)'],
+    change: ['이전 값 (A)', '이후 값 (B)'],
+    discount: ['원래 가격 (A)', '할인율 (B, %)']
+  };
+
+  function calc() {
+    var a = parseFloat($('pcA').value), b = parseFloat($('pcB').value);
+    if (isNaN(a) || isNaN(b)) {
+      $('pcMain').innerHTML = '<span class="tool__error">두 값을 모두 입력해 주세요</span>';
+      $('pcSub').textContent = ''; $('pcStats').innerHTML = '';
+      return;
+    }
+
+    if (mode === 'of') {
+      var v = a * b / 100;
+      $('pcMain').textContent = fmt(v);
+      $('pcSub').textContent = fmt(a) + '의 ' + fmt(b) + '%는 ' + fmt(v) + '입니다.';
+      $('pcStats').innerHTML =
+        row('A × B ÷ 100', fmt(v)) +
+        row('A에서 뺀 값', fmt(a - v)) +
+        row('A에 더한 값', fmt(a + v)) +
+        row('계산식', fmt(a) + ' × ' + fmt(b) + ' ÷ 100');
+
+    } else if (mode === 'ratio') {
+      var p = a / b * 100;
+      $('pcMain').textContent = fmt(p) + '%';
+      $('pcSub').textContent = fmt(a) + '은(는) ' + fmt(b) + '의 ' + fmt(p) + '%입니다.';
+      $('pcStats').innerHTML =
+        row('비율', fmt(p) + '%') +
+        row('나머지 비율', fmt(100 - p) + '%') +
+        row('차이', fmt(b - a)) +
+        row('계산식', fmt(a) + ' ÷ ' + fmt(b) + ' × 100');
+
+    } else if (mode === 'change') {
+      var d = b - a, r = a === 0 ? NaN : d / Math.abs(a) * 100;
+      $('pcMain').textContent = (d >= 0 ? '+' : '') + fmt(r) + '%';
+      $('pcSub').textContent = fmt(a) + ' → ' + fmt(b) + ' 은(는) ' +
+        (d >= 0 ? '증가' : '감소') + '했습니다.';
+      $('pcStats').innerHTML =
+        row(d >= 0 ? '증가율' : '감소율', fmt(Math.abs(r)) + '%') +
+        row('변화량', (d >= 0 ? '+' : '') + fmt(d)) +
+        row('이후 ÷ 이전', fmt(a === 0 ? NaN : b / a)) +
+        row('계산식', '(' + fmt(b) + ' - ' + fmt(a) + ') ÷ ' + fmt(Math.abs(a)) + ' × 100');
+
+    } else {
+      var off = a * b / 100, pay = a - off;
+      $('pcMain').textContent = fmt(pay) + '원';
+      $('pcSub').textContent = fmt(a) + '원에서 ' + fmt(b) + '% 할인하면 ' + fmt(pay) + '원입니다.';
+      $('pcStats').innerHTML =
+        row('할인 금액', fmt(off) + '원') +
+        row('결제 금액', fmt(pay) + '원') +
+        row('추가 10% 더 할인 시', fmt(pay * 0.9) + '원') +
+        row('부가세 10% 포함 시', fmt(pay * 1.1) + '원');
+    }
+  }
+
+  $('pcMode').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-m]');
+    if (!b) return;
+    mode = b.getAttribute('data-m');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    $('pcLabelA').textContent = LABELS[mode][0];
+    $('pcLabelB').textContent = LABELS[mode][1];
+    calc();
+  });
+  ['pcA', 'pcB'].forEach(function (id) { $(id).addEventListener('input', calc); });
+  calc();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">네 가지 계산</a></li><li><a href="#section-2">%와 %p를 구분하세요</a></li><li><a href="#section-3">할인 계산에서 흔한 실수</a></li><li><a href="#section-4">자주 쓰는 상황들</a></li><li><a href="#section-5">감소율은 되돌아가지 않습니다</a></li></ol></nav>
+      <h2 id="section-1">네 가지 계산</h2>
+<p>퍼센트 계산은 결국 네 가지 형태로 나뉩니다. 위 계산기에서 탭으로 골라 쓰시면 됩니다.</p>
+<div class="table-wrap"><table><thead><tr><th>상황</th><th>예시</th><th>계산법</th></tr></thead><tbody><tr><td>A의 B%는?</td><td>5만 원의 15%는 얼마?</td><td>A × B ÷ 100</td></tr><tr><td>A는 B의 몇 %?</td><td>30점은 40점 만점의 몇 %?</td><td>A ÷ B × 100</td></tr><tr><td>증가율·감소율</td><td>100만 원에서 120만 원이 되면?</td><td>(B − A) ÷ A × 100</td></tr><tr><td>할인가</td><td>5만 원에서 30% 할인하면?</td><td>A − (A × B ÷ 100)</td></tr></tbody></table></div>
+<h2 id="section-2">%와 %p를 구분하세요</h2>
+<p>뉴스에서 자주 나오는데 많은 분이 헷갈리는 부분입니다.</p>
+<p>금리가 <strong>2%에서 3%로 올랐다</strong>고 해봅시다.</p>
+<ul><li><strong>1%p(퍼센트포인트) 올랐다</strong> — 두 비율의 <strong>차이</strong>를 말합니다. 3 − 2 = 1</li><li><strong>50% 올랐다</strong> — 원래 값 대비 <strong>증가율</strong>입니다. (3 − 2) ÷ 2 × 100 = 50</li></ul>
+<p>둘 다 맞는 말인데 숫자가 완전히 다릅니다. <strong>비율끼리 비교할 때는 %p</strong>, <strong>변화의 크기를 말할 때는 %</strong>를 씁니다.</p>
+<p>지지율이 40%에서 42%가 되었다면 &quot;2%p 상승&quot; 또는 &quot;5% 상승&quot;입니다. &quot;2% 상승&quot;이라고 하면 틀린 표현입니다.</p>
+<h2 id="section-3">할인 계산에서 흔한 실수</h2>
+<h3>30% 할인 후 다시 20% 할인은 50% 할인이 아닙니다</h3>
+<p>10,000원짜리를 예로 들면,</p>
+<ol><li>30% 할인 → 7,000원</li><li>여기서 다시 20% 할인 → 7,000 × 0.8 = <strong>5,600원</strong></li></ol>
+<p>50% 할인이면 5,000원이어야 하는데 5,600원입니다. 실제 할인율은 <strong>44%</strong>입니다. 두 번째 할인이 이미 깎인 금액에 적용되기 때문입니다.</p>
+<p>계산식으로는 <code>0.7 × 0.8 = 0.56</code>, 즉 정가의 56%를 낸다는 뜻입니다.</p>
+<h3>부가세 10%는 나눌 때 1.1로 나눕니다</h3>
+<p>부가세 포함 11,000원인 상품의 공급가액을 구할 때, 11,000 × 0.9 = 9,900원이 아닙니다.</p>
+<p><strong>11,000 ÷ 1.1 = 10,000원</strong>이 맞습니다. 부가세는 공급가액에 10%를 더한 것이므로, 되돌릴 때는 1.1로 나눠야 합니다.</p>
+<ul><li>공급가액 → 부가세 포함가: <strong>× 1.1</strong></li><li>부가세 포함가 → 공급가액: <strong>÷ 1.1</strong></li><li>부가세액만: 포함가 ÷ 11</li></ul>
+<h2 id="section-4">자주 쓰는 상황들</h2>
+<h3>시험 점수</h3>
+<p>40문항 중 32개를 맞혔다면 32 ÷ 40 × 100 = <strong>80점</strong>입니다. &quot;A는 B의 몇 %?&quot; 탭을 쓰시면 됩니다.</p>
+<h3>목표 달성률</h3>
+<p>목표 500만 원에 실적 430만 원이면 430 ÷ 500 × 100 = <strong>86%</strong> 달성입니다.</p>
+<h3>전년 대비 매출</h3>
+<p>작년 8,000만 원, 올해 9,600만 원이면 (9,600 − 8,000) ÷ 8,000 × 100 = <strong>20% 증가</strong>입니다.</p>
+<h3>마이너스에서의 증감률</h3>
+<p>기준값이 0이거나 음수면 증감률 계산이 의미를 잃습니다. 적자에서 흑자로 돌아선 경우는 퍼센트가 아니라 <strong>금액 변화</strong>로 설명하는 것이 정확합니다.</p>
+<h2 id="section-5">감소율은 되돌아가지 않습니다</h2>
+<p>100에서 50% 줄면 50이 됩니다. 여기서 다시 100으로 돌아가려면 50% 늘리면 될까요? <strong>아닙니다. 100% 늘려야 합니다.</strong></p>
+<p>50에서 50% 늘리면 75밖에 안 됩니다. 줄어들 때와 늘어날 때의 기준값이 다르기 때문에 생기는 현상입니다.</p>
+<p>주가가 반토막 났을 때 원금 회복에 두 배가 필요한 것도 같은 이유입니다. 이런 이유로 손실률과 회복률을 단순 비교하면 판단을 그르치기 쉽습니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

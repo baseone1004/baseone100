@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>글자 수 세기 — 공백 포함·제외, 바이트, 원고지 매수 | 툴노트</title>
+  <meta name="description" content="자기소개서나 원고를 붙여 넣으면 공백 포함·제외 글자 수, 바이트, 단어 수, 원고지 매수를 실시간으로 세어 줍니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/charcount.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="글자 수 세기 — 공백 포함·제외, 바이트, 원고지 매수">
+  <meta property="og:description" content="자기소개서나 원고를 붙여 넣으면 공백 포함·제외 글자 수, 바이트, 단어 수, 원고지 매수를 실시간으로 세어 줍니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/charcount.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"글자 수 세기 — 공백 포함·제외, 바이트, 원고지 매수","description":"자기소개서나 원고를 붙여 넣으면 공백 포함·제외 글자 수, 바이트, 단어 수, 원고지 매수를 실시간으로 세어 줍니다.","url":"https://baseone100.com/tools/charcount.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"변환·생성","item":"https://baseone100.com/category/convert.html"},
+{"@type":"ListItem","position":3,"name":"글자 수 세기","item":"https://baseone100.com/tools/charcount.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html">계산기</a></li><li><a href="/category/convert.html" class="is-active">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/convert.html">변환·생성</a> <span>›</span> 글자 수 세기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/convert.html">변환·생성</a></p>
+    <h1 class="post__title">글자 수 세기 — 공백 포함·제외, 바이트, 원고지 매수</h1>
+    <p class="post__desc">자기소개서나 원고를 붙여 넣으면 공백 포함·제외 글자 수, 바이트, 단어 수, 원고지 매수를 실시간으로 세어 줍니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="ccTool">
+  <div class="field">
+    <label for="ccText">글을 붙여 넣으세요</label>
+    <textarea id="ccText" placeholder="여기에 자기소개서나 원고를 붙여 넣으면 실시간으로 세어 줍니다." spellcheck="false"></textarea>
+  </div>
+
+  <div class="tool__actions">
+    <button type="button" id="ccClear">지우기</button>
+    <button type="button" id="ccCopy">본문 복사</button>
+    <span class="copied" id="ccMsg" hidden>복사했습니다</span>
+  </div>
+
+  <div class="tool__result">
+    <p class="tool__headline" id="ccMain">0자</p>
+    <p class="tool__sub" id="ccSub">공백 포함 기준입니다.</p>
+    <ul class="stats" id="ccStats"></ul>
+    <p class="tool__note">
+      바이트 수는 한글 1자를 몇 바이트로 세느냐에 따라 달라집니다.
+      아래에서 지원 사이트의 안내에 맞는 기준을 보세요.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var ta = $('ccText');
+
+  function bytes(str, korLen) {
+    var n = 0;
+    for (var i = 0; i < str.length; i++) {
+      var c = str.codePointAt(i);
+      if (c > 0xFFFF) { i++; n += korLen; continue; }   // 이모지 등
+      n += c > 127 ? korLen : 1;
+    }
+    return n;
+  }
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+  var num = function (n) { return n.toLocaleString('ko-KR'); };
+
+  function update() {
+    var t = ta.value;
+    var withSpace = Array.from(t).length;
+    var noSpace = Array.from(t.replace(/\s/g, '')).length;
+    var words = t.trim() ? t.trim().split(/\s+/).length : 0;
+    var lines = t === '' ? 0 : t.split(/\r\n|\r|\n/).length;
+    var paras = t.trim() ? t.trim().split(/\n\s*\n/).length : 0;
+    var sheets = Math.ceil(withSpace / 200);   // 원고지 200자 기준
+
+    $('ccMain').textContent = num(withSpace) + '자';
+    $('ccSub').textContent = '공백 포함 기준 · 공백 제외 ' + num(noSpace) + '자';
+    $('ccStats').innerHTML =
+      row('공백 포함', num(withSpace) + '자') +
+      row('공백 제외', num(noSpace) + '자') +
+      row('단어 수', num(words) + '개') +
+      row('줄 수', num(lines) + '줄') +
+      row('문단 수', num(paras) + '개') +
+      row('원고지 (200자 기준)', num(sheets) + '매') +
+      row('바이트 (한글 2바이트)', num(bytes(t, 2)) + 'B') +
+      row('바이트 (한글 3바이트 · UTF-8)', num(bytes(t, 3)) + 'B');
+  }
+
+  ta.addEventListener('input', update);
+  $('ccClear').addEventListener('click', function () { ta.value = ''; update(); ta.focus(); });
+  $('ccCopy').addEventListener('click', function () {
+    if (!ta.value) return;
+    var done = function () {
+      var m = $('ccMsg'); m.hidden = false;
+      setTimeout(function () { m.hidden = true; }, 1600);
+    };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(ta.value).then(done, function () {});
+    } else {
+      ta.select(); document.execCommand('copy'); done();
+    }
+  });
+  update();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">어떤 기준으로 세야 하나요</a></li><li><a href="#section-2">바이트가 뭔가요</a></li><li><a href="#section-3">원고지 매수</a></li><li><a href="#section-4">자기소개서를 쓸 때</a></li><li><a href="#section-5">이 도구가 세는 것들</a></li></ol></nav>
+      <h2 id="section-1">어떤 기준으로 세야 하나요</h2>
+<p>글자 수 제한은 제출하는 곳마다 기준이 다릅니다. 공고문에 적힌 표현을 그대로 따라야 합니다.</p>
+<ul><li><strong>&quot;1,000자 이내&quot;</strong> — 대개 공백을 포함한 글자 수입니다.</li><li><strong>&quot;공백 제외 1,000자&quot;</strong> — 띄어쓰기와 줄바꿈을 빼고 셉니다.</li><li><strong>&quot;2,000바이트 이내&quot;</strong> — 글자가 아니라 저장 용량 단위입니다. 아래에서 자세히 설명합니다.</li></ul>
+<p>애매하면 <strong>공백 포함 기준으로 맞추는 편이 안전합니다.</strong> 그쪽이 더 엄격한 기준이기 때문입니다.</p>
+<h2 id="section-2">바이트가 뭔가요</h2>
+<p>공공기관이나 일부 기업의 입사지원 시스템은 글자 수 대신 <strong>바이트(byte)</strong>로 제한합니다. 바이트는 컴퓨터가 글자를 저장하는 데 쓰는 용량 단위인데, <strong>한글 한 글자가 몇 바이트인지는 저장 방식에 따라 다릅니다.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>문자</th><th>2바이트 기준 (EUC-KR)</th><th>3바이트 기준 (UTF-8)</th></tr></thead><tbody><tr><td>한글 &quot;가&quot;</td><td>2바이트</td><td>3바이트</td></tr><tr><td>영문 &quot;a&quot;</td><td>1바이트</td><td>1바이트</td></tr><tr><td>숫자 &quot;1&quot;</td><td>1바이트</td><td>1바이트</td></tr><tr><td>공백</td><td>1바이트</td><td>1바이트</td></tr></tbody></table></div>
+<p><strong>어느 쪽인지는 시스템마다 다릅니다.</strong> 오래된 공공기관 시스템은 2바이트 기준이 많고, 최근 시스템은 UTF-8(3바이트) 기준이 많습니다.</p>
+<p>위 계산기는 <strong>두 기준을 모두 보여드립니다.</strong> 지원하려는 곳의 안내를 확인하시고, 모르겠다면 <strong>3바이트 기준으로 맞추는 편이 안전합니다.</strong> 그쪽이 더 큰 숫자로 나오기 때문입니다.</p>
+<aside class="callout callout--tip"><p class="callout__title">바이트 제한을 넘겼을 때</p><p>바이트는 한글이 영문보다 2~3배 무겁습니다. 그래서 <strong>한자어를 짧은 표현으로 바꾸거나 불필요한 조사를 줄이는 것</strong>이 효과가 큽니다. 줄바꿈도 바이트를 차지하니 빈 줄을 줄이는 것만으로 수십 바이트를 아낄 수 있습니다.</p></aside>
+<h2 id="section-3">원고지 매수</h2>
+<p>원고지는 한 장에 <strong>200자</strong>(20자 × 10줄)가 기본입니다. 문예 공모전이나 과제에서 &quot;원고지 20매 분량&quot;이라고 하면 4,000자 정도를 뜻합니다.</p>
+<p>위 계산기는 공백 포함 글자 수를 200으로 나눠 매수를 보여드립니다. 실제 원고지에서는 문단 첫 칸 들여쓰기와 문장부호 처리 규칙 때문에 약간의 차이가 생길 수 있습니다.</p>
+<h2 id="section-4">자기소개서를 쓸 때</h2>
+<h3>글자 수는 채우되 억지로 늘리지 마세요</h3>
+<p>&quot;1,000자 이내&quot;라면 <strong>900자 이상</strong>은 채우는 것이 좋습니다. 너무 짧으면 성의가 없어 보입니다. 다만 같은 말을 반복해 늘리는 건 역효과입니다.</p>
+<h3>복사·붙여넣기 후 다시 세어 보세요</h3>
+<p>워드나 한글에서 쓴 글을 지원 사이트에 붙여 넣으면 <strong>줄바꿈과 공백이 달라져 글자 수가 바뀌는 경우가 많습니다.</strong> 붙여 넣은 뒤에 그 사이트가 세는 숫자를 꼭 확인하세요.</p>
+<h3>자동 저장을 믿지 마세요</h3>
+<p>지원 시스템이 세션 만료로 날아가는 일이 흔합니다. <strong>메모장이나 워드에 먼저 쓰고</strong>, 완성된 글을 붙여 넣는 방식을 권합니다. 위 계산기에 붙여 넣어 분량을 맞춘 뒤 제출하시면 안전합니다.</p>
+<h2 id="section-5">이 도구가 세는 것들</h2>
+<ul><li><strong>공백 포함 / 공백 제외</strong> 글자 수</li><li><strong>단어 수</strong> — 공백으로 나눈 덩어리 수</li><li><strong>줄 수 / 문단 수</strong></li><li><strong>원고지 매수</strong> (200자 기준)</li><li><strong>바이트</strong> — 한글 2바이트 기준과 3바이트(UTF-8) 기준 둘 다</li></ul>
+<p>이모지처럼 특수한 문자는 시스템에 따라 다르게 세어질 수 있습니다. 지원서에는 이모지를 쓰지 않는 편이 안전합니다.</p>
+<p>입력한 글은 <strong>브라우저 안에서만 처리되며 서버로 전송되거나 저장되지 않습니다.</strong> 자기소개서처럼 민감한 내용도 안심하고 붙여 넣으셔도 됩니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

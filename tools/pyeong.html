@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>평수 변환기 — 제곱미터(㎡)와 평 상호 변환 | 툴노트</title>
+  <meta name="description" content="제곱미터를 평으로, 평을 제곱미터로 바로 바꿉니다. 34평인데 전용면적이 84㎡인 이유와 공급면적·전용면적의 차이도 함께 정리했습니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/pyeong.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="평수 변환기 — 제곱미터(㎡)와 평 상호 변환">
+  <meta property="og:description" content="제곱미터를 평으로, 평을 제곱미터로 바로 바꿉니다. 34평인데 전용면적이 84㎡인 이유와 공급면적·전용면적의 차이도 함께 정리했습니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/pyeong.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"평수 변환기 — 제곱미터(㎡)와 평 상호 변환","description":"제곱미터를 평으로, 평을 제곱미터로 바로 바꿉니다. 34평인데 전용면적이 84㎡인 이유와 공급면적·전용면적의 차이도 함께 정리했습니다.","url":"https://baseone100.com/tools/pyeong.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"변환·생성","item":"https://baseone100.com/category/convert.html"},
+{"@type":"ListItem","position":3,"name":"평수 변환기","item":"https://baseone100.com/tools/pyeong.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html">계산기</a></li><li><a href="/category/convert.html" class="is-active">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/convert.html">변환·생성</a> <span>›</span> 평수 변환기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/convert.html">변환·생성</a></p>
+    <h1 class="post__title">평수 변환기 — 제곱미터(㎡)와 평 상호 변환</h1>
+    <p class="post__desc">제곱미터를 평으로, 평을 제곱미터로 바로 바꿉니다. 34평인데 전용면적이 84㎡인 이유와 공급면적·전용면적의 차이도 함께 정리했습니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="pyeongTool">
+  <div class="tool__row">
+    <div class="field">
+      <label for="pySqm">제곱미터 (㎡)</label>
+      <input type="number" id="pySqm" inputmode="decimal" step="any" placeholder="예: 84.96">
+    </div>
+    <div class="field">
+      <label for="pyPyeong">평</label>
+      <input type="number" id="pyPyeong" inputmode="decimal" step="any" placeholder="예: 25.7">
+    </div>
+  </div>
+  <p class="field__hint" style="margin-top:10px">
+    한쪽에 입력하면 다른 쪽이 자동으로 바뀝니다.
+  </p>
+
+  <div class="tool__actions">
+    <div class="seg" id="pyPreset">
+      <button type="button" data-sqm="39.67">18평형</button>
+      <button type="button" data-sqm="59.94">24평형</button>
+      <button type="button" data-sqm="84.96">34평형</button>
+      <button type="button" data-sqm="114.9">45평형</button>
+    </div>
+  </div>
+
+  <div class="tool__result" id="pyOut" hidden>
+    <p class="tool__headline" id="pyMain"></p>
+    <p class="tool__sub">1평 = 3.3058㎡ (1㎡ = 0.3025평)</p>
+    <ul class="stats" id="pyStats"></ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  var PY = 400 / 121;              // 1평 = 3.30578512...㎡ (정확히 400/121)
+  var $ = function (id) { return document.getElementById(id); };
+  var sqm = $('pySqm'), pyeong = $('pyPyeong'), out = $('pyOut');
+  var lock = false;
+
+  function fmt(n, d) {
+    return Number(n.toFixed(d === undefined ? 2 : d)).toLocaleString('ko-KR');
+  }
+  function row(k, v) {
+    return '<li><span class="k">' + k + '</span><span class="v">' + v + '</span></li>';
+  }
+
+  function show(m2, py) {
+    out.hidden = false;
+    $('pyMain').textContent = fmt(m2) + '㎡ = ' + fmt(py) + '평';
+    $('pyStats').innerHTML =
+      row('제곱미터', fmt(m2, 4) + ' ㎡') +
+      row('평', fmt(py, 4) + ' 평') +
+      row('반올림한 평형', Math.round(py) + '평형') +
+      row('제곱피트', fmt(m2 * 10.7639) + ' ft²') +
+      row('한 변이 같은 정사각형', fmt(Math.sqrt(m2)) + ' m');
+  }
+
+  function fromSqm() {
+    if (lock) return;
+    var v = parseFloat(sqm.value);
+    if (isNaN(v) || v < 0) { out.hidden = true; if (sqm.value === '') pyeong.value = ''; return; }
+    lock = true; pyeong.value = Number((v / PY).toFixed(4)); lock = false;
+    show(v, v / PY);
+  }
+  function fromPyeong() {
+    if (lock) return;
+    var v = parseFloat(pyeong.value);
+    if (isNaN(v) || v < 0) { out.hidden = true; if (pyeong.value === '') sqm.value = ''; return; }
+    lock = true; sqm.value = Number((v * PY).toFixed(4)); lock = false;
+    show(v * PY, v);
+  }
+
+  sqm.addEventListener('input', fromSqm);
+  pyeong.addEventListener('input', fromPyeong);
+
+  $('pyPreset').addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-sqm]');
+    if (!btn) return;
+    sqm.value = btn.getAttribute('data-sqm');
+    fromSqm();
+  });
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">1평은 정확히 몇 제곱미터인가</a></li><li><a href="#section-2">34평인데 전용면적은 왜 84㎡인가요</a></li><li><a href="#section-3">발코니 확장은 면적에 안 잡힙니다</a></li><li><a href="#section-4">전세·매매에서 무엇을 봐야 하나</a></li><li><a href="#section-5">토지 면적 단위</a></li></ol></nav>
+      <h2 id="section-1">1평은 정확히 몇 제곱미터인가</h2>
+<p><strong>1평 = 400 ÷ 121 ≈ 3.3058㎡</strong>입니다. 반대로 <strong>1㎡ ≈ 0.3025평</strong>입니다.</p>
+<p>평은 원래 한 변이 6자(약 1.818m)인 정사각형의 넓이에서 온 단위입니다. 계산해 보면 1.818 × 1.818 ≈ 3.306㎡가 나옵니다.</p>
+<p>암산이 필요할 때는 이렇게 하면 대략 맞습니다.</p>
+<ul><li><strong>제곱미터 → 평</strong>: 3.3으로 나눕니다. (또는 0.3을 곱합니다)</li><li><strong>평 → 제곱미터</strong>: 3.3을 곱합니다.</li></ul>
+<p>예를 들어 84㎡는 84 ÷ 3.3 ≈ 25.5평입니다.</p>
+<aside class="callout callout--note"><p class="callout__title">공식 문서에서는 ㎡만 씁니다</p><p>2007년부터 계량에 관한 법률에 따라 부동산 거래와 광고에서 <strong>평 대신 제곱미터를 쓰도록</strong> 정해졌습니다. 등기부등본, 건축물대장, 분양 공고는 모두 ㎡로 표기됩니다. &quot;평&quot;은 일상에서 관습적으로 쓰이는 표현입니다.</p></aside>
+<h2 id="section-2">34평인데 전용면적은 왜 84㎡인가요</h2>
+<p>가장 많이 헷갈리는 부분입니다. <strong>34평형 아파트의 전용면적은 84㎡</strong>인데, 84 ÷ 3.3058 = 25.4평입니다. 34평과 25평, 어느 쪽이 맞을까요?</p>
+<p><strong>둘 다 맞습니다.</strong> 재는 범위가 다를 뿐입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>구분</th><th>포함 범위</th><th>34평형 아파트 예시</th></tr></thead><tbody><tr><td><strong>전용면적</strong></td><td>우리 집 현관 안쪽 (방, 거실, 주방, 화장실)</td><td>약 84㎡ (25.4평)</td></tr><tr><td><strong>주거공용면적</strong></td><td>계단, 복도, 엘리베이터</td><td>약 28㎡</td></tr><tr><td><strong>공급면적</strong></td><td>전용 + 주거공용 = 흔히 말하는 &quot;평형&quot;</td><td>약 112㎡ (34평)</td></tr><tr><td><strong>기타공용면적</strong></td><td>관리사무소, 주차장, 경비실</td><td>별도</td></tr><tr><td><strong>계약면적</strong></td><td>공급 + 기타공용 (분양 계약서 기준)</td><td>가장 큼</td></tr></tbody></table></div>
+<p>즉 <strong>&quot;34평&quot;은 공급면적 기준</strong>이고, <strong>&quot;84㎡&quot;는 전용면적 기준</strong>입니다. 실제로 내가 쓰는 공간의 크기는 전용면적입니다.</p>
+<h3>흔한 평형과 전용면적</h3>
+<div class="table-wrap"><table><thead><tr><th>부르는 이름</th><th>전용면적</th><th>전용면적을 평으로</th></tr></thead><tbody><tr><td>18평형</td><td>약 39~40㎡</td><td>약 12평</td></tr><tr><td>24평형</td><td>약 59~60㎡</td><td>약 18평</td></tr><tr><td>32~34평형</td><td>약 84~85㎡</td><td>약 25.5평</td></tr><tr><td>45평형</td><td>약 114~115㎡</td><td>약 34.7평</td></tr></tbody></table></div>
+<p>&quot;국민평형 84&quot;라는 말은 전용면적 84㎡를 가리킵니다.</p>
+<h2 id="section-3">발코니 확장은 면적에 안 잡힙니다</h2>
+<p>발코니는 <strong>서비스 면적</strong>이라 전용면적에도 공급면적에도 포함되지 않습니다. 그래서 같은 84㎡라도 발코니를 확장한 집이 체감상 훨씬 넓습니다.</p>
+<p>집을 보러 다니실 때 <strong>&quot;확장형인지&quot;</strong>를 꼭 확인하세요. 같은 면적으로 표기되어도 실사용 공간이 3~5평 정도 차이 날 수 있습니다.</p>
+<h2 id="section-4">전세·매매에서 무엇을 봐야 하나</h2>
+<ul><li><strong>전용면적</strong>을 우선 보세요. 실제 생활 공간입니다.</li><li><strong>전용률</strong>(전용면적 ÷ 공급면적)이 높을수록 실속 있습니다. 아파트는 보통 70~80%, 오피스텔은 50~60% 정도로 낮습니다. 같은 &quot;30평&quot;이라도 오피스텔이 훨씬 좁게 느껴지는 이유입니다.</li><li><strong>관리비</strong>는 대개 공급면적이나 계약면적 기준으로 부과됩니다. 전용면적이 작아도 공용면적이 크면 관리비가 많이 나옵니다.</li></ul>
+<h2 id="section-5">토지 면적 단위</h2>
+<p>땅에는 다른 단위도 함께 쓰입니다.</p>
+<ul><li><strong>1평 = 3.3058㎡</strong></li><li><strong>1마지기</strong> = 지역마다 다릅니다. 논은 대략 150~300평, 밭은 100평 안팎으로 통일된 값이 아닙니다.</li><li><strong>1정보 = 3,000평 ≈ 9,917㎡</strong></li><li><strong>1헥타르(ha) = 10,000㎡ ≈ 3,025평</strong></li></ul>
+<p>거래나 등기에서는 반드시 <strong>㎡ 기준의 공적 장부</strong>를 확인하세요. 평 단위는 참고용으로만 쓰시는 편이 안전합니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

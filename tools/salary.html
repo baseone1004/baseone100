@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>연봉 실수령액 계산기 — 4대보험과 세금 뗀 실제 월급 | 툴노트</title>
+  <meta name="description" content="연봉을 넣으면 국민연금·건강보험·고용보험과 소득세를 뺀 월 실수령액을 계산합니다. 공제 항목별 금액과 계산 근거를 모두 공개합니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/salary.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="연봉 실수령액 계산기 — 4대보험과 세금 뗀 실제 월급">
+  <meta property="og:description" content="연봉을 넣으면 국민연금·건강보험·고용보험과 소득세를 뺀 월 실수령액을 계산합니다. 공제 항목별 금액과 계산 근거를 모두 공개합니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/salary.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"연봉 실수령액 계산기 — 4대보험과 세금 뗀 실제 월급","description":"연봉을 넣으면 국민연금·건강보험·고용보험과 소득세를 뺀 월 실수령액을 계산합니다. 공제 항목별 금액과 계산 근거를 모두 공개합니다.","url":"https://baseone100.com/tools/salary.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"계산기","item":"https://baseone100.com/category/calc.html"},
+{"@type":"ListItem","position":3,"name":"연봉 실수령액 계산기","item":"https://baseone100.com/tools/salary.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html" class="is-active">계산기</a></li><li><a href="/category/convert.html">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/calc.html">계산기</a> <span>›</span> 연봉 실수령액 계산기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/calc.html">계산기</a></p>
+    <h1 class="post__title">연봉 실수령액 계산기 — 4대보험과 세금 뗀 실제 월급</h1>
+    <p class="post__desc">연봉을 넣으면 국민연금·건강보험·고용보험과 소득세를 뺀 월 실수령액을 계산합니다. 공제 항목별 금액과 계산 근거를 모두 공개합니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="slTool">
+  <div class="seg" id="slMode" style="margin-bottom:18px">
+    <button type="button" data-m="year" aria-pressed="true">연봉으로 계산</button>
+    <button type="button" data-m="month" aria-pressed="false">월급으로 계산</button>
+  </div>
+
+  <div class="tool__row">
+    <div class="field">
+      <label for="slPay" id="slPayLabel">연봉 (만원)</label>
+      <input type="number" id="slPay" inputmode="numeric" step="any" value="4000">
+      <span class="field__hint" id="slPayHint">세전 금액입니다</span>
+    </div>
+    <div class="field">
+      <label for="slNontax">비과세액 (월, 원)</label>
+      <input type="number" id="slNontax" inputmode="numeric" step="10000" value="200000">
+      <span class="field__hint">식대는 월 20만 원까지 비과세입니다</span>
+    </div>
+  </div>
+
+  <div class="tool__row" style="margin-top:16px">
+    <div class="field">
+      <label for="slFamily">부양가족 수 (본인 포함)</label>
+      <input type="number" id="slFamily" inputmode="numeric" step="1" min="1" value="1">
+    </div>
+    <div class="field">
+      <span class="field__label">퇴직금</span>
+      <div class="seg" id="slSeverance">
+        <button type="button" data-s="apart" aria-pressed="true">별도</button>
+        <button type="button" data-s="included" aria-pressed="false">연봉에 포함</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool__result" id="slOut">
+    <p class="tool__headline" id="slMain"></p>
+    <p class="tool__sub" id="slSub"></p>
+    <ul class="stats" id="slStats"></ul>
+    <p class="tool__note" id="slNote"></p>
+  </div>
+
+  <details class="rates" id="slRates">
+    <summary>적용 요율 보기 · 직접 수정하기</summary>
+    <p class="rates__warn">
+      아래 값은 <strong id="slRateYear">2025년</strong> 기준으로 넣어둔 것입니다.
+      요율은 해마다 바뀌므로, 정확한 금액이 필요하시면
+      국민건강보험공단·국민연금공단의 최신 고시 요율을 확인하고 아래 값을 직접 고쳐서 쓰세요.
+      수정한 값은 이 브라우저에만 저장됩니다.
+    </p>
+    <div class="tool__row">
+      <div class="field">
+        <label for="rtPension">국민연금 (근로자, %)</label>
+        <input type="number" id="rtPension" step="any" value="4.5">
+      </div>
+      <div class="field">
+        <label for="rtHealth">건강보험 (근로자, %)</label>
+        <input type="number" id="rtHealth" step="any" value="3.545">
+      </div>
+      <div class="field">
+        <label for="rtCare">장기요양 (건강보험료의 %)</label>
+        <input type="number" id="rtCare" step="any" value="12.95">
+      </div>
+    </div>
+    <div class="tool__row" style="margin-top:14px">
+      <div class="field">
+        <label for="rtEmp">고용보험 (근로자, %)</label>
+        <input type="number" id="rtEmp" step="any" value="0.9">
+      </div>
+      <div class="field">
+        <label for="rtPenMax">연금 기준소득월액 상한 (원)</label>
+        <input type="number" id="rtPenMax" step="10000" value="6170000">
+      </div>
+      <div class="field">
+        <label for="rtPenMin">연금 기준소득월액 하한 (원)</label>
+        <input type="number" id="rtPenMin" step="10000" value="390000">
+      </div>
+    </div>
+    <div class="tool__actions">
+      <button type="button" id="rtReset">기본값으로 되돌리기</button>
+    </div>
+  </details>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var mode = 'year', severance = 'apart';
+
+  var DEFAULTS = {
+    rtPension: 4.5, rtHealth: 3.545, rtCare: 12.95,
+    rtEmp: 0.9, rtPenMax: 6170000, rtPenMin: 390000
+  };
+  var STORE = 'toolnote-salary-rates';
+
+  var won = function (n) { return Math.round(n).toLocaleString('ko-KR') + '원'; };
+  function row(k, v, cls) {
+    return '<li><span class="k">' + k + '</span><span class="v' +
+      (cls ? ' ' + cls : '') + '">' + v + '</span></li>';
+  }
+
+  // 근로소득공제 (총급여 구간별)
+  function earnedDeduction(gross) {
+    var d;
+    if (gross <= 5000000) d = gross * 0.7;
+    else if (gross <= 15000000) d = 3500000 + (gross - 5000000) * 0.4;
+    else if (gross <= 45000000) d = 7500000 + (gross - 15000000) * 0.15;
+    else if (gross <= 100000000) d = 12000000 + (gross - 45000000) * 0.05;
+    else d = 14750000 + (gross - 100000000) * 0.02;
+    return Math.min(d, 20000000);
+  }
+
+  // 종합소득 과세표준 구간 (세율, 누진공제)
+  var BRACKETS = [
+    [14000000, 0.06, 0],
+    [50000000, 0.15, 1260000],
+    [88000000, 0.24, 5760000],
+    [150000000, 0.35, 15440000],
+    [300000000, 0.38, 19940000],
+    [500000000, 0.40, 25940000],
+    [1000000000, 0.42, 35940000],
+    [Infinity, 0.45, 65940000]
+  ];
+
+  function incomeTax(base) {
+    if (base <= 0) return 0;
+    for (var i = 0; i < BRACKETS.length; i++) {
+      if (base <= BRACKETS[i][0]) return base * BRACKETS[i][1] - BRACKETS[i][2];
+    }
+    return 0;
+  }
+
+  // 근로소득세액공제
+  function earnedTaxCredit(tax, gross) {
+    var credit = tax <= 1300000 ? tax * 0.55 : 715000 + (tax - 1300000) * 0.3;
+    var cap;
+    if (gross <= 33000000) cap = 740000;
+    else if (gross <= 70000000) cap = Math.max(740000 - (gross - 33000000) * 0.008, 660000);
+    else if (gross <= 120000000) cap = Math.max(660000 - (gross - 70000000) * 0.5, 500000);
+    else cap = Math.max(500000 - (gross - 120000000) * 0.5, 200000);
+    return Math.min(credit, cap);
+  }
+
+  function rate(id) {
+    var v = parseFloat($(id).value);
+    return isNaN(v) ? DEFAULTS[id] : v;
+  }
+
+  function saveRates() {
+    try {
+      var o = {};
+      Object.keys(DEFAULTS).forEach(function (k) { o[k] = $(k).value; });
+      localStorage.setItem(STORE, JSON.stringify(o));
+    } catch (e) { /* 저장 못 해도 계산에는 지장 없음 */ }
+  }
+  function loadRates() {
+    try {
+      var o = JSON.parse(localStorage.getItem(STORE) || '{}');
+      Object.keys(DEFAULTS).forEach(function (k) { if (o[k]) $(k).value = o[k]; });
+    } catch (e) { /* 무시 */ }
+  }
+
+  function calc() {
+    var input = parseFloat($('slPay').value) || 0;
+    var annual = mode === 'year' ? input * 10000 : input * 10000 * 12;
+    if (severance === 'included') annual = annual * 12 / 13;   // 13분의 1이 퇴직금
+
+    var nontaxMonth = Math.max(parseFloat($('slNontax').value) || 0, 0);
+    var family = Math.max(parseInt($('slFamily').value, 10) || 1, 1);
+
+    if (annual <= 0) {
+      $('slMain').innerHTML = '<span class="tool__error">금액을 입력해 주세요</span>';
+      $('slSub').textContent = ''; $('slStats').innerHTML = ''; $('slNote').textContent = '';
+      return;
+    }
+
+    var monthTotal = annual / 12;
+    var monthTaxable = Math.max(monthTotal - nontaxMonth, 0);   // 과세 대상 월 급여
+    var grossYear = monthTaxable * 12;                          // 연간 총급여(비과세 제외)
+
+    // --- 4대보험 (근로자 부담분) ---
+    var penBase = Math.min(Math.max(monthTaxable, rate('rtPenMin')), rate('rtPenMax'));
+    var pension = penBase * rate('rtPension') / 100;
+    var health = monthTaxable * rate('rtHealth') / 100;
+    var care = health * rate('rtCare') / 100;
+    var employ = monthTaxable * rate('rtEmp') / 100;
+    var insurance = pension + health + care + employ;
+
+    // --- 소득세 (연간 기준 근사) ---
+    var base = grossYear
+      - earnedDeduction(grossYear)
+      - 1500000 * family
+      - (pension + health + care + employ) * 12;
+    base = Math.max(base, 0);
+
+    var calculated = incomeTax(base);
+    var decided = Math.max(calculated - earnedTaxCredit(calculated, grossYear), 0);
+    var localTax = decided * 0.1;
+
+    var monthIncomeTax = decided / 12;
+    var monthLocalTax = localTax / 12;
+
+    var totalDeduct = insurance + monthIncomeTax + monthLocalTax;
+    var net = monthTotal - totalDeduct;
+
+    $('slMain').textContent = won(net);
+    $('slSub').textContent = '월 실수령액 (세전 월 ' + won(monthTotal) + ')';
+
+    $('slStats').innerHTML =
+      row('세전 연봉', won(annual)) +
+      row('세전 월급', won(monthTotal)) +
+      row('비과세액 (월)', won(nontaxMonth)) +
+      row('국민연금', '-' + won(pension)) +
+      row('건강보험', '-' + won(health)) +
+      row('장기요양보험', '-' + won(care)) +
+      row('고용보험', '-' + won(employ)) +
+      row('소득세 (근사)', '-' + won(monthIncomeTax)) +
+      row('지방소득세', '-' + won(monthLocalTax)) +
+      row('공제 합계', '-' + won(totalDeduct)) +
+      row('월 실수령액', won(net)) +
+      row('연 실수령액', won(net * 12)) +
+      row('공제율', (totalDeduct / monthTotal * 100).toFixed(1) + '%');
+
+    $('slNote').textContent = severance === 'included'
+      ? '연봉에 퇴직금이 포함된 조건이라, 연봉의 13분의 12를 급여로 보고 계산했습니다.'
+      : '부양가족 ' + family + '명(본인 포함) 기준입니다. 실제 공제 항목에 따라 달라집니다.';
+  }
+
+  $('slMode').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-m]');
+    if (!b) return;
+    mode = b.getAttribute('data-m');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    $('slPayLabel').textContent = mode === 'year' ? '연봉 (만원)' : '월급 (만원)';
+    if (mode === 'month' && $('slPay').value === '4000') $('slPay').value = '333';
+    if (mode === 'year' && $('slPay').value === '333') $('slPay').value = '4000';
+    calc();
+  });
+
+  $('slSeverance').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-s]');
+    if (!b) return;
+    severance = b.getAttribute('data-s');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+    calc();
+  });
+
+  ['slPay', 'slNontax', 'slFamily'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  Object.keys(DEFAULTS).forEach(function (id) {
+    $(id).addEventListener('input', function () { saveRates(); calc(); });
+  });
+  $('rtReset').addEventListener('click', function () {
+    Object.keys(DEFAULTS).forEach(function (k) { $(k).value = DEFAULTS[k]; });
+    saveRates();
+    calc();
+  });
+
+  loadRates();
+  calc();
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">세전 연봉과 실수령액이 다른 이유</a></li><li><a href="#section-2">비과세액을 꼭 넣으세요</a></li><li><a href="#section-3">퇴직금 포함 여부</a></li><li><a href="#section-4">계산 방식 — 이 계산기는 이렇게 계산합니다</a></li><li><a href="#section-5">급여명세서와 다를 수 있는 이유</a></li><li><a href="#section-6">연봉 협상할 때 확인할 것</a></li></ol></nav>
+      <h2 id="section-1">세전 연봉과 실수령액이 다른 이유</h2>
+<p>연봉 4,000만 원이면 월 333만 원일 것 같지만, 통장에 찍히는 금액은 그보다 적습니다. 급여에서 <strong>4대보험료와 세금</strong>이 먼저 빠져나가기 때문입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>공제 항목</th><th>부담</th></tr></thead><tbody><tr><td>국민연금</td><td>근로자 4.5% (회사가 4.5% 추가 부담)</td></tr><tr><td>건강보험</td><td>근로자 약 3.5% (회사가 같은 금액 부담)</td></tr><tr><td>장기요양보험</td><td>건강보험료의 약 13%</td></tr><tr><td>고용보험</td><td>근로자 0.9%</td></tr><tr><td>소득세</td><td>소득 구간에 따라 누진 적용</td></tr><tr><td>지방소득세</td><td>소득세의 10%</td></tr></tbody></table></div>
+<p><strong>산재보험은 회사가 전액 부담</strong>하므로 급여에서 빠지지 않습니다. &quot;4대보험 다 떼간다&quot;고 하지만 실제로 근로자가 내는 건 세 가지입니다.</p>
+<aside class="callout callout--warn"><p class="callout__title">요율은 해마다 바뀝니다</p><p>위 계산기에는 <strong>2025년 기준 요율</strong>을 넣어두었습니다. 건강보험료율과 국민연금 기준소득월액 상·하한은 매년 조정되므로, 정확한 금액이 필요하시면 계산기 아래의 <strong>&quot;적용 요율 보기&quot;</strong>를 열어 최신 고시 요율로 직접 고쳐 쓰시기 바랍니다. 수정한 값은 브라우저에 저장됩니다.</p>
+<p>최신 요율은 <a href="https://www.nhis.or.kr" target="_blank" rel="noopener nofollow">국민건강보험공단</a>과 <a href="https://www.nps.or.kr" target="_blank" rel="noopener nofollow">국민연금공단</a>에서 확인하실 수 있습니다.</p></aside>
+<h2 id="section-2">비과세액을 꼭 넣으세요</h2>
+<p>급여 중 일부는 세금과 보험료 계산에서 빠집니다. 가장 흔한 것이 <strong>식대</strong>로, <strong>월 20만 원까지 비과세</strong>입니다.</p>
+<p>비과세액이 클수록 과세 대상 금액이 줄어들어 실수령액이 늘어납니다. 계산기의 기본값은 식대 20만 원으로 잡아두었습니다. 급여명세서에서 본인의 실제 비과세 항목을 확인해 넣으시면 더 정확합니다.</p>
+<p>자주 있는 비과세 항목입니다.</p>
+<ul><li><strong>식대</strong> — 월 20만 원 한도</li><li><strong>자가운전보조금</strong> — 본인 차량을 업무에 쓰는 경우 월 20만 원 한도</li><li><strong>출산·보육수당</strong> — 6세 이하 자녀, 요건에 따라 한도가 있습니다</li><li><strong>연구보조비</strong>, <strong>취재수당</strong> 등 직종별 항목</li></ul>
+<h2 id="section-3">퇴직금 포함 여부</h2>
+<p>채용 공고의 &quot;연봉 4,000만 원&quot;이 <strong>퇴직금 포함</strong>인지 <strong>별도</strong>인지에 따라 실수령액이 꽤 달라집니다.</p>
+<ul><li><strong>퇴직금 별도</strong> — 연봉 전액이 급여입니다. 퇴직할 때 퇴직금을 따로 받습니다.</li><li><strong>퇴직금 포함</strong> — 연봉을 13으로 나눠 12를 급여로, 1을 퇴직금으로 적립합니다. 같은 연봉이라도 매달 받는 돈이 약 7.7% 적습니다.</li></ul>
+<p>계산기에서 해당하는 쪽을 선택하시면 반영됩니다. <strong>협상할 때는 반드시 확인하셔야 하는 부분</strong>입니다.</p>
+<h2 id="section-4">계산 방식 — 이 계산기는 이렇게 계산합니다</h2>
+<p>숫자만 보여주고 끝내지 않기 위해, 계산 과정을 그대로 적어둡니다.</p>
+<h3>1단계 — 과세 대상 급여 구하기</h3>
+<pre><code>월 과세대상 급여 = (연봉 ÷ 12) - 월 비과세액</code></pre>
+<h3>2단계 — 4대보험료 (근로자 부담분)</h3>
+<pre><code>국민연금  = 기준소득월액 × 4.5%      (상·하한 적용)
+건강보험  = 보수월액 × 3.545%
+장기요양  = 건강보험료 × 12.95%
+고용보험  = 보수월액 × 0.9%</code></pre>
+<p>국민연금은 <strong>기준소득월액에 상한과 하한</strong>이 있습니다. 소득이 상한을 넘어도 보험료는 더 늘지 않습니다.</p>
+<h3>3단계 — 소득세</h3>
+<pre><code>과세표준 = 연간 총급여
+         - 근로소득공제
+         - 인적공제(1인당 150만 원)
+         - 연간 4대보험료
+
+산출세액 = 과세표준 × 세율 - 누진공제
+결정세액 = 산출세액 - 근로소득세액공제
+지방소득세 = 결정세액 × 10%</code></pre>
+<p><strong>근로소득공제</strong>는 총급여 구간에 따라 자동으로 계산됩니다 (한도 2,000만 원).</p>
+<p><strong>소득세율 구간</strong>은 다음과 같습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>과세표준</th><th>세율</th><th>누진공제</th></tr></thead><tbody><tr><td>1,400만 원 이하</td><td>6%</td><td>-</td></tr><tr><td>1,400만 ~ 5,000만</td><td>15%</td><td>126만 원</td></tr><tr><td>5,000만 ~ 8,800만</td><td>24%</td><td>576만 원</td></tr><tr><td>8,800만 ~ 1억 5천만</td><td>35%</td><td>1,544만 원</td></tr><tr><td>1억 5천만 ~ 3억</td><td>38%</td><td>1,994만 원</td></tr><tr><td>3억 ~ 5억</td><td>40%</td><td>2,594만 원</td></tr><tr><td>5억 ~ 10억</td><td>42%</td><td>3,594만 원</td></tr><tr><td>10억 초과</td><td>45%</td><td>6,594만 원</td></tr></tbody></table></div>
+<p><strong>세율은 소득 전체가 아니라 구간별로 적용됩니다.</strong> 과세표준이 5,100만 원이어도 전체에 24%가 붙는 게 아니라, 초과분에만 붙습니다. &quot;연봉이 조금 올랐는데 세금 때문에 손해&quot;라는 말은 그래서 사실이 아닙니다.</p>
+<h2 id="section-5">급여명세서와 다를 수 있는 이유</h2>
+<p>이 계산기의 결과는 <strong>근사치</strong>입니다. 실제 금액과 차이가 나는 이유는 다음과 같습니다.</p>
+<h3>매달 떼는 소득세는 &quot;간이세액표&quot; 기준입니다</h3>
+<p>회사는 매달 <strong>근로소득 간이세액표</strong>에 따라 세금을 미리 떼고, 연말정산에서 실제 세액과 맞춰 정산합니다. 이 계산기는 간이세액표가 아니라 <strong>연간 세액을 12로 나눈 값</strong>을 씁니다. 그래서 매달 명세서 금액과는 차이가 나지만, <strong>1년 전체로 보면 실제 부담에 가깝습니다.</strong></p>
+<h3>개인별 공제가 반영되지 않습니다</h3>
+<p>실제 연말정산에서는 아래 항목들이 추가로 공제되어 세금이 더 줄어듭니다.</p>
+<ul><li>신용카드·체크카드 사용액 소득공제</li><li>주택청약저축, 연금저축, IRP 납입액</li><li>의료비, 교육비, 기부금 세액공제</li><li>자녀 세액공제, 월세 세액공제</li><li>보험료 세액공제</li></ul>
+<p>이 계산기는 <strong>본인과 부양가족 기본공제만</strong> 반영합니다. 따라서 <strong>실제 실수령액은 계산 결과보다 조금 더 많은 경우가 일반적</strong>입니다.</p>
+<h3>그 밖의 차이</h3>
+<ul><li>회사에 따라 노동조합비, 사우회비, 상조회비 등이 추가로 빠질 수 있습니다.</li><li>상여금이 있는 달은 공제액이 달라집니다.</li><li>건강보험료는 매년 4월에 전년도 소득 기준으로 <strong>정산</strong>이 이루어져, 그달에 추가 납부나 환급이 생길 수 있습니다.</li><li>국민연금 기준소득월액은 매년 7월에 조정됩니다.</li></ul>
+<h2 id="section-6">연봉 협상할 때 확인할 것</h2>
+<ul><li><strong>퇴직금 별도인지 포함인지</strong> — 같은 숫자라도 7.7% 차이입니다.</li><li><strong>비과세 항목이 얼마인지</strong> — 식대가 급여에 포함인지 별도인지 확인하세요.</li><li><strong>상여금 구조</strong> — 연봉에 포함된 성과급인지, 별도 지급인지에 따라 체감이 다릅니다.</li><li><strong>4대보험 가입 여부</strong> — 3.3%만 떼는 조건이라면 근로자가 아니라 프리랜서(사업소득) 계약일 수 있습니다. 퇴직금과 실업급여를 받을 수 없으니 반드시 확인하세요.</li></ul>
+<p>이 계산기의 결과는 참고용이며 법적·회계적 효력이 없습니다. 정확한 금액은 회사의 급여명세서와 국세청 홈택스의 연말정산 자료를 확인하시기 바랍니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/qr.html">QR 코드 생성기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a><a class="quick" href="/tools/percent.html">퍼센트 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

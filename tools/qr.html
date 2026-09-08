@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR 코드 생성기 — 주소·문장을 QR로 만들고 PNG 저장 | 툴노트</title>
+  <meta name="description" content="링크나 문장을 넣으면 QR 코드를 만들어 PNG 파일로 저장할 수 있습니다. 인쇄용 크기 선택과 오류 복원 수준 설정도 지원합니다.">
+  <link rel="canonical" href="https://baseone100.com/tools/qr.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR 코드 생성기 — 주소·문장을 QR로 만들고 PNG 저장">
+  <meta property="og:description" content="링크나 문장을 넣으면 QR 코드를 만들어 PNG 파일로 저장할 수 있습니다. 인쇄용 크기 선택과 오류 복원 수준 설정도 지원합니다.">
+  <meta property="og:url" content="https://baseone100.com/tools/qr.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"QR 코드 생성기 — 주소·문장을 QR로 만들고 PNG 저장","description":"링크나 문장을 넣으면 QR 코드를 만들어 PNG 파일로 저장할 수 있습니다. 인쇄용 크기 선택과 오류 복원 수준 설정도 지원합니다.","url":"https://baseone100.com/tools/qr.html",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+"browserRequirements":"HTML5, JavaScript","inLanguage":"ko-KR",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"변환·생성","item":"https://baseone100.com/category/convert.html"},
+{"@type":"ListItem","position":3,"name":"QR 코드 생성기","item":"https://baseone100.com/tools/qr.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html">계산기</a></li><li><a href="/category/convert.html" class="is-active">변환·생성</a></li><li><a href="/category/windows.html">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/convert.html">변환·생성</a> <span>›</span> QR 코드 생성기
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/convert.html">변환·생성</a></p>
+    <h1 class="post__title">QR 코드 생성기 — 주소·문장을 QR로 만들고 PNG 저장</h1>
+    <p class="post__desc">링크나 문장을 넣으면 QR 코드를 만들어 PNG 파일로 저장할 수 있습니다. 인쇄용 크기 선택과 오류 복원 수준 설정도 지원합니다.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="tool-wrap"><div class="tool" id="qrTool">
+  <div class="field">
+    <label for="qrText">QR 코드로 만들 내용</label>
+    <textarea id="qrText" style="min-height:110px" spellcheck="false" placeholder="주소, 문장, 전화번호 등 무엇이든 넣으세요">https://example.com</textarea>
+  </div>
+
+  <div class="tool__row" style="margin-top:14px">
+    <div class="field">
+      <label for="qrSize">크기 (픽셀)</label>
+      <select id="qrSize">
+        <option value="200">200 × 200</option>
+        <option value="300" selected>300 × 300</option>
+        <option value="500">500 × 500</option>
+        <option value="800">800 × 800 (인쇄용)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="qrLevel">오류 복원 수준</label>
+      <select id="qrLevel">
+        <option value="L">L — 약 7% 손상까지</option>
+        <option value="M" selected>M — 약 15% (기본)</option>
+        <option value="Q">Q — 약 25%</option>
+        <option value="H">H — 약 30% (로고 삽입용)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="tool__actions">
+    <button type="button" class="primary" id="qrGo">QR 코드 만들기</button>
+    <button type="button" id="qrDown">PNG로 저장</button>
+  </div>
+
+  <div class="qr-out" id="qrBox"></div>
+  <p class="tool__note" id="qrNote" style="text-align:center"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var box = $('qrBox'), note = $('qrNote'), qr = null;
+
+  function render() {
+    var text = $('qrText').value.trim();
+    box.innerHTML = '';
+    if (!text) {
+      note.innerHTML = '<span class="tool__error">내용을 입력해 주세요</span>';
+      return;
+    }
+    if (typeof QRCode === 'undefined') {
+      note.innerHTML = '<span class="tool__error">QR 생성 라이브러리를 불러오지 못했습니다. ' +
+        '인터넷 연결을 확인하고 새로고침해 주세요.</span>';
+      return;
+    }
+    var size = parseInt($('qrSize').value, 10);
+    try {
+      qr = new QRCode(box, {
+        text: text,
+        width: size,
+        height: size,
+        correctLevel: QRCode.CorrectLevel[$('qrLevel').value]
+      });
+      note.textContent = '길이 ' + Array.from(text).length + '자 · ' + size + '×' + size + '픽셀';
+    } catch (e) {
+      note.innerHTML = '<span class="tool__error">내용이 너무 깁니다. ' +
+        '길이를 줄이거나 오류 복원 수준을 낮춰 보세요.</span>';
+    }
+  }
+
+  $('qrDown').addEventListener('click', function () {
+    var canvas = box.querySelector('canvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = 'qrcode.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  $('qrGo').addEventListener('click', render);
+  ['qrSize', 'qrLevel'].forEach(function (id) {
+    $(id).addEventListener('change', render);
+  });
+  $('qrText').addEventListener('input', function () {
+    clearTimeout(window.__qrT);
+    window.__qrT = setTimeout(render, 400);
+  });
+
+  if (document.readyState === 'complete') render();
+  else window.addEventListener('load', render);
+})();
+</script>
+</div>
+    <p class="tool-privacy">입력한 값은 이 브라우저 안에서만 계산되며 어디에도 저장되거나 전송되지 않습니다.</p>
+  </div>
+
+  
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 페이지에서 다루는 내용</p><ol><li><a href="#section-1">무엇을 넣을 수 있나요</a></li><li><a href="#section-2">오류 복원 수준이 뭔가요</a></li><li><a href="#section-3">인쇄할 때 주의할 점</a></li><li><a href="#section-4">큐싱(QR 피싱)을 조심하세요</a></li><li><a href="#section-5">만든 QR 코드는 얼마나 유지되나요</a></li></ol></nav>
+      <h2 id="section-1">무엇을 넣을 수 있나요</h2>
+<p>QR 코드에는 글자로 표현할 수 있는 건 무엇이든 담깁니다. 자주 쓰는 형태는 다음과 같습니다.</p>
+<div class="table-wrap"><table><thead><tr><th>용도</th><th>입력 형식</th></tr></thead><tbody><tr><td>웹사이트</td><td><code>https://example.com</code></td></tr><tr><td>전화 걸기</td><td><code>tel:01012345678</code></td></tr><tr><td>문자 보내기</td><td><code>sms:01012345678</code></td></tr><tr><td>메일 보내기</td><td><code>mailto:hello@example.com</code></td></tr><tr><td>와이파이 접속</td><td><code>WIFI:T:WPA;S:네트워크이름;P:비밀번호;;</code></td></tr><tr><td>그냥 문장</td><td>아무 텍스트나</td></tr></tbody></table></div>
+<p><strong>웹 주소를 넣을 때는 <code>https://</code>를 꼭 붙이세요.</strong> 없으면 일부 앱이 주소로 인식하지 못하고 그냥 글자로 읽습니다.</p>
+<h2 id="section-2">오류 복원 수준이 뭔가요</h2>
+<p>QR 코드는 일부가 가려지거나 더러워져도 읽히도록 설계되어 있습니다. 이 여유분을 얼마나 둘지가 <strong>오류 복원 수준(Error Correction Level)</strong>입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>수준</th><th>복원 가능 범위</th><th>언제 쓰나</th></tr></thead><tbody><tr><td>L</td><td>약 7%</td><td>화면 표시용, 내용이 길 때</td></tr><tr><td>M</td><td>약 15%</td><td>일반적인 용도 (기본값)</td></tr><tr><td>Q</td><td>약 25%</td><td>인쇄물, 야외 부착물</td></tr><tr><td>H</td><td>약 30%</td><td>가운데 로고를 넣을 때</td></tr></tbody></table></div>
+<p>수준을 높이면 더 튼튼해지지만, 같은 내용이라도 <strong>패턴이 더 촘촘해집니다.</strong> 내용이 길고 수준이 높으면 코드가 매우 복잡해져서 오히려 인식이 어려워질 수 있습니다.</p>
+<h2 id="section-3">인쇄할 때 주의할 점</h2>
+<h3>크기</h3>
+<p>일반적으로 <strong>최소 2cm × 2cm</strong> 이상을 권장합니다. 멀리서 찍어야 하는 포스터라면 더 커야 합니다.</p>
+<p>경험적인 기준으로 <strong>스캔 거리의 1/10 정도 크기</strong>면 무난합니다. 1m 거리에서 찍는다면 10cm 정도입니다.</p>
+<p>인쇄용으로는 위 생성기에서 <strong>800×800 픽셀</strong>을 고르시면 확대해도 깨지지 않습니다.</p>
+<h3>여백</h3>
+<p>QR 코드 주변에는 <strong>흰 여백(Quiet Zone)</strong>이 필요합니다. 코드 한 칸 크기의 4배 정도를 비워두어야 인식률이 좋습니다. 여백 없이 다른 그래픽에 딱 붙이면 인식이 안 될 수 있습니다.</p>
+<h3>색상</h3>
+<ul><li><strong>어두운 코드 + 밝은 배경</strong>이 원칙입니다. 반대로 하면 많은 앱이 못 읽습니다.</li><li>배경과 코드의 <strong>명암 차이</strong>를 충분히 두세요.</li><li>광택 있는 재질은 빛 반사로 인식이 어려워집니다.</li></ul>
+<p><strong>인쇄 전에 반드시 실제 스마트폰으로 테스트하세요.</strong> 화면에서는 잘 읽혀도 인쇄물에서는 안 되는 경우가 있습니다.</p>
+<h2 id="section-4">큐싱(QR 피싱)을 조심하세요</h2>
+<p>QR 코드는 <strong>눈으로 목적지를 확인할 수 없다</strong>는 약점이 있습니다. 이를 악용한 사기를 <strong>큐싱(Qshing)</strong>이라고 합니다.</p>
+<p>실제로 이런 수법이 보고되었습니다.</p>
+<ul><li>주차장·식당의 정상 QR 위에 <strong>가짜 스티커를 덧붙이는</strong> 방식</li><li>공공기관을 사칭한 안내문에 QR을 넣어 가짜 사이트로 유도</li><li>배달·택배 안내를 가장해 악성 앱 설치를 유도</li></ul>
+<p><strong>안전하게 쓰는 법</strong></p>
+<ol><li>QR을 찍으면 <strong>연결되는 주소를 먼저 확인</strong>하세요. 요즘 카메라 앱은 링크를 미리 보여줍니다.</li><li>주소가 이상하거나 단축 URL이면 누르지 마세요.</li><li><strong>QR을 통해 앱을 설치하라는 요구는 거의 항상 위험합니다.</strong></li><li>스티커가 덧붙여진 흔적이 보이면 사용하지 마세요.</li><li>결제나 로그인을 요구하면 QR 대신 <strong>공식 앱이나 직접 입력한 주소</strong>로 접속하세요.</li></ol>
+<h2 id="section-5">만든 QR 코드는 얼마나 유지되나요</h2>
+<p>이 생성기가 만드는 것은 <strong>정적 QR 코드</strong>입니다. 입력한 내용이 코드 자체에 직접 담기므로 <strong>영구히 유효하고, 만료되지 않으며, 사용 횟수 제한도 없습니다.</strong> 서버를 거치지 않으니 이 사이트가 없어져도 계속 동작합니다.</p>
+<p>반대로 <strong>연결 대상을 나중에 바꿀 수는 없습니다.</strong> 주소가 바뀔 가능성이 있다면, 바뀌지 않는 짧은 주소를 하나 만들어 두고 그 주소를 QR로 만드는 방식이 안전합니다.</p>
+<p>이 페이지에 입력한 내용은 브라우저 안에서만 처리되며 서버로 전송되지 않습니다.</p>
+      <aside class="post__note">
+        <p>계산 결과는 참고용입니다. 실제 금액이나 법적 판단이 필요한 경우에는 해당 기관의
+        공식 안내를 함께 확인해 주세요. 계산 기준이 달라졌거나 결과가 이상하면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인하겠습니다.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">다른 도구도 써보세요</h2>
+  <div class="quick-row quick-row--left"><a class="quick" href="/tools/salary.html">연봉 실수령액 계산기</a><a class="quick" href="/tools/random.html">랜덤 뽑기·조 나누기</a><a class="quick" href="/tools/password.html">비밀번호 생성기</a><a class="quick" href="/tools/unit.html">단위 변환기</a><a class="quick" href="/tools/bmi.html">BMI 계산기</a><a class="quick" href="/tools/percent.html">퍼센트 계산기</a></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>

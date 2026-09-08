@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서 | 툴노트</title>
+  <meta name="description" content="C 드라이브가 빨갛게 변했을 때 어디부터 지워야 할지 정리했습니다. 되돌릴 수 있는 방법부터 순서대로, 건드리면 안 되는 폴더까지 함께 설명합니다.">
+  <link rel="canonical" href="https://baseone100.com/posts/windows-storage-cleanup.html">
+  <meta property="og:site_name" content="툴노트">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서">
+  <meta property="og:description" content="C 드라이브가 빨갛게 변했을 때 어디부터 지워야 할지 정리했습니다. 되돌릴 수 있는 방법부터 순서대로, 건드리면 안 되는 폴더까지 함께 설명합니다.">
+  <meta property="og:url" content="https://baseone100.com/posts/windows-storage-cleanup.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="툴노트" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+"headline":"윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서","description":"C 드라이브가 빨갛게 변했을 때 어디부터 지워야 할지 정리했습니다. 되돌릴 수 있는 방법부터 순서대로, 건드리면 안 되는 폴더까지 함께 설명합니다.",
+"datePublished":"2026-07-02","dateModified":"2026-08-28",
+"author":{"@type":"Organization","name":"툴노트"},
+"publisher":{"@type":"Organization","name":"툴노트"},
+"mainEntityOfPage":{"@type":"WebPage","@id":"https://baseone100.com/posts/windows-storage-cleanup.html"},"inLanguage":"ko-KR"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"홈","item":"https://baseone100.com/"},
+{"@type":"ListItem","position":2,"name":"윈도우","item":"https://baseone100.com/category/windows.html"},
+{"@type":"ListItem","position":3,"name":"윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서","item":"https://baseone100.com/posts/windows-storage-cleanup.html"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html">
+      <span class="brand__mark" aria-hidden="true">TN</span>
+      <span class="brand__text">
+        <span class="brand__name">툴노트</span>
+        <span class="brand__tag">바로 쓰는 생활 계산기와 변환기</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul><li><a href="/index.html">홈</a></li><li><a href="/category/calc.html">계산기</a></li><li><a href="/category/convert.html">변환·생성</a></li><li><a href="/category/windows.html" class="is-active">윈도우</a></li><li><a href="/category/mobile.html">스마트폰</a></li><li><a href="/about.html">소개</a></li><li><a href="/contact.html">문의</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/index.html">홈</a> <span>›</span>
+    <a href="/category/windows.html">윈도우</a> <span>›</span> 윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서
+  </nav>
+</div>
+
+<article class="post">
+  <header class="wrap post__head">
+    <p class="post__cat"><a href="/category/windows.html">윈도우</a></p>
+    <h1 class="post__title">윈도우 저장 공간이 부족할 때, 안전하게 용량 확보하는 순서</h1>
+    <p class="post__desc">C 드라이브가 빨갛게 변했을 때 어디부터 지워야 할지 정리했습니다. 되돌릴 수 있는 방법부터 순서대로, 건드리면 안 되는 폴더까지 함께 설명합니다.</p>
+    <p class="post__meta">
+      <time datetime="2026-07-02">2026-07-02 작성</time>
+      <span>·</span><time datetime="2026-08-28">2026-08-28 확인</time>
+      <span>·</span><span>읽는 데 약 7분</span>
+    </p>
+  </header>
+
+  <div class="wrap post__layout">
+    <div class="post__body">
+      <nav class="toc" aria-label="목차"><p class="toc__title">이 글의 순서</p><ol><li><a href="#section-1">먼저 무엇이 용량을 차지하는지 봅니다</a></li><li><a href="#section-2">1단계 — 임시 파일 정리 (가장 안전하고 효과가 큽니다)</a></li><li><a href="#section-3">2단계 — 저장 공간 센서를 켜둡니다</a></li><li><a href="#section-4">3단계 — 안 쓰는 앱 정리</a></li><li><a href="#section-5">4단계 — 최대 절전 모드 파일 (하드 용량이 작을 때)</a></li><li><a href="#section-6">5단계 — 시스템 복원 용량 줄이기</a></li><li><a href="#section-7">6단계 — 원드라이브 파일 온디맨드</a></li><li><a href="#section-8">7단계 — 큰 파일을 직접 찾아냅니다</a></li><li><a href="#section-9">절대 하면 안 되는 것</a></li><li><a href="#section-10">그래도 부족하다면</a></li></ol></nav>
+      <p>C 드라이브 막대가 빨갛게 변하면 마음이 급해집니다. 그런데 이때 검색해서 나오는 &quot;이 폴더를 지우세요&quot; 같은 글을 그대로 따라 하면 윈도우가 부팅되지 않는 상황까지 갈 수 있습니다.</p>
+<p>이 글은 <strong>되돌리기 쉬운 방법부터 순서대로</strong> 정리했습니다. 위에서부터 차례로 해보시고, 필요한 만큼 확보되면 거기서 멈추면 됩니다.</p>
+<h2 id="section-1">먼저 무엇이 용량을 차지하는지 봅니다</h2>
+<p>지우기 전에 어디에 얼마나 쓰고 있는지부터 확인해야 헛수고를 안 합니다.</p>
+<ol><li><code>Windows 키 + I</code>를 눌러 설정을 엽니다.</li><li><strong>시스템 → 저장소</strong>로 들어갑니다.</li><li>잠시 기다리면 앱, 임시 파일, 문서, 사진 등 항목별 사용량이 막대로 나옵니다.</li><li>아래쪽 <strong>저장 공간 사용량 더 보기</strong>를 누르면 더 자세히 볼 수 있습니다.</li></ol>
+<p>여기서 유난히 큰 항목이 하나 보인다면, 그 항목만 해결해도 끝나는 경우가 많습니다.</p>
+<h2 id="section-2">1단계 — 임시 파일 정리 (가장 안전하고 효과가 큽니다)</h2>
+<p><strong>설정 → 시스템 → 저장소 → 임시 파일</strong>로 들어갑니다. 목록에서 체크한 항목만 지워지므로, 아래 항목 위주로 선택하세요.</p>
+<ul><li><strong>Windows 업데이트 정리</strong> — 업데이트 설치 후 남은 백업본. 보통 몇 GB씩 나옵니다.</li><li><strong>배달 최적화 파일</strong> — 다른 PC와 업데이트를 주고받으려고 받아둔 조각. 지워도 됩니다.</li><li><strong>휴지통</strong> — 안에 든 파일이 정말 필요 없는지 먼저 확인하세요.</li><li><strong>썸네일</strong> — 미리보기 이미지 캐시. 지워도 다시 만들어집니다.</li><li><strong>이전 Windows 설치(Windows.old)</strong> — 대형 업데이트 후 남는 이전 버전. <strong>20GB 이상</strong> 나올 때도 있습니다.</li></ul>
+<aside class="callout callout--warn"><p class="callout__title">Windows.old를 지우기 전에</p><p>이 폴더를 지우면 <strong>이전 윈도우 버전으로 되돌리기가 불가능해집니다.</strong> 업데이트 후 프로그램이 잘 돌아가는지 며칠 써보고 지우세요. 지우지 않아도 보통 10일 뒤에 자동으로 삭제됩니다.</p></aside>
+<p><strong>다운로드</strong> 항목은 기본으로 체크가 안 되어 있는데, 여기에는 직접 받은 파일이 들어 있으니 목록에서 체크하지 말고 탐색기로 직접 열어서 확인하고 지우는 편이 안전합니다.</p>
+<h2 id="section-3">2단계 — 저장 공간 센서를 켜둡니다</h2>
+<p>앞으로 같은 일이 반복되지 않게 자동 정리를 켜두는 단계입니다.</p>
+<p><strong>설정 → 시스템 → 저장소 → 저장 공간 센서</strong>를 켜고 들어가면, 휴지통에 며칠 이상 있던 파일과 열어보지 않은 다운로드 파일을 자동으로 지우도록 설정할 수 있습니다.</p>
+<p>다운로드 폴더 자동 삭제는 <strong>&quot;안 함&quot;으로 두시길 권합니다.</strong> 받아둔 설치 파일이나 문서가 소리 없이 사라지면 곤란한 경우가 생깁니다. 휴지통 30일 정도만 켜두면 충분합니다.</p>
+<h2 id="section-4">3단계 — 안 쓰는 앱 정리</h2>
+<p><strong>설정 → 앱 → 설치된 앱</strong>으로 들어가서 정렬 기준을 <strong>크기순</strong>으로 바꿉니다. 위쪽에 올라온 것 중 기억도 안 나는 프로그램이 있다면 지울 후보입니다.</p>
+<p>게임 런처(스팀, 에픽 등)를 쓰신다면 여기보다 <strong>런처 안에서 게임별 용량</strong>을 확인하는 편이 정확합니다. 게임 하나가 100GB를 넘기는 일이 흔합니다.</p>
+<h2 id="section-5">4단계 — 최대 절전 모드 파일 (하드 용량이 작을 때)</h2>
+<p>윈도우는 <code>C:\hiberfil.sys</code>라는 숨김 파일에 메모리 내용을 통째로 저장해 둡니다. 크기는 설치된 메모리 용량의 <strong>40% 안팎</strong>이라, 16GB 메모리라면 6GB 남짓을 차지합니다.</p>
+<p>최대 절전 모드를 안 쓰신다면 꺼서 이 파일을 없앨 수 있습니다.</p>
+<ol><li>시작 버튼을 우클릭 → <strong>터미널(관리자)</strong> 또는 <strong>명령 프롬프트(관리자)</strong>를 엽니다.</li><li>아래 명령을 입력합니다.</li></ol>
+<pre><code>powercfg /hibernate off</code></pre>
+<p>되돌리려면 <code>powercfg /hibernate on</code>을 입력하면 됩니다.</p>
+<aside class="callout callout--note"><p class="callout__title">알아두실 점</p><p>이 설정을 끄면 윈도우의 <strong>빠른 시작</strong> 기능도 함께 꺼집니다. 부팅이 몇 초 느려질 수 있으니, 노트북을 자주 덮어두고 쓰시면 그냥 켜두는 편이 낫습니다.</p></aside>
+<h2 id="section-6">5단계 — 시스템 복원 용량 줄이기</h2>
+<p>복원 지점은 문제가 생겼을 때 되돌리는 안전장치라 <strong>끄지는 마시고</strong>, 쓰는 용량만 줄입니다.</p>
+<ol><li><code>Windows 키 + R</code> → <code>sysdm.cpl</code> 입력 → 엔터</li><li><strong>시스템 보호</strong> 탭 → C 드라이브 선택 → <strong>구성</strong></li><li>아래쪽 <strong>최대 사용량</strong> 막대를 <strong>3~5%</strong> 정도로 내리고 확인</li></ol>
+<p>이미 쌓인 오래된 복원 지점은 같은 화면의 <strong>삭제</strong> 버튼으로 정리할 수 있습니다. 단, 삭제하면 최근 복원 지점까지 모두 사라지니 지금 PC가 정상 작동할 때만 하세요.</p>
+<h2 id="section-7">6단계 — 원드라이브 파일 온디맨드</h2>
+<p>원드라이브를 쓰신다면 클라우드에만 두고 PC 용량은 비울 수 있습니다.</p>
+<p>탐색기에서 원드라이브 폴더나 하위 폴더를 <strong>우클릭 → 여유 공간 확보</strong>를 누르면, 파일 목록은 그대로 보이면서 실제 데이터는 클라우드로 올라갑니다. 필요할 때 더블클릭하면 그때 내려받습니다. 아이콘이 구름 모양이면 클라우드에만 있는 상태입니다.</p>
+<h2 id="section-8">7단계 — 큰 파일을 직접 찾아냅니다</h2>
+<p>여기까지 해도 부족하다면, 어디에 큰 파일이 숨어 있는지 눈으로 봐야 합니다. <strong>WizTree</strong>나 <strong>TreeSize Free</strong> 같은 무료 도구를 쓰면 폴더별 용량을 크기순으로 보여줍니다.</p>
+<p>자주 발견되는 것들입니다.</p>
+<div class="table-wrap"><table><thead><tr><th>위치</th><th>내용</th></tr></thead><tbody><tr><td>다운로드 폴더</td><td>예전에 받은 설치 파일, 압축 파일</td></tr><tr><td>바탕 화면</td><td>임시로 옮겨두고 잊은 영상·이미지</td></tr><tr><td>문서\카카오톡 받은 파일</td><td>대화방에서 받은 사진과 동영상</td></tr><tr><td>AppData\Local\Temp</td><td>프로그램이 남긴 임시 파일</td></tr><tr><td>영상 편집·게임 폴더</td><td>프로젝트 캐시, 렌더링 결과물</td></tr></tbody></table></div>
+<h2 id="section-9">절대 하면 안 되는 것</h2>
+<p>용량 확보 글에 종종 나오지만, 실제로는 위험하거나 의미 없는 방법들입니다.</p>
+<ul><li><strong><code>C:\Windows\WinSxS</code> 폴더를 직접 지우기</strong> — 시스템 파일 저장소입니다. 지우면 업데이트와 기능 복구가 깨집니다. 이 폴더는 반드시 위의 <strong>Windows 업데이트 정리</strong> 기능을 통해서만 줄여야 합니다.</li><li><strong><code>System32</code> 안의 파일 삭제</strong> — 윈도우가 부팅되지 않습니다.</li><li><strong>&quot;레지스트리 청소기&quot;류 프로그램</strong> — 확보되는 용량은 거의 없고, 잘못 지우면 프로그램이 실행되지 않습니다.</li><li><strong>가상 메모리(페이지 파일) 완전 해제</strong> — 몇 GB는 벌지만 메모리가 부족할 때 프로그램이 강제 종료됩니다. 건드리지 않는 편이 낫습니다.</li></ul>
+<h2 id="section-10">그래도 부족하다면</h2>
+<p>위 방법을 다 해도 여유가 안 생긴다면 디스크 자체가 작은 경우입니다. 요즘 윈도우 11은 시스템만 40~60GB를 쓰기 때문에 <strong>128GB SSD로는 사실상 빠듯합니다.</strong></p>
+<ul><li>데스크톱이라면 SSD를 하나 더 추가하고 게임과 사진을 그쪽으로 옮기는 편이 가장 확실합니다.</li><li>노트북이라 증설이 어렵다면 외장 SSD나 클라우드로 사진·영상을 옮기세요.</li><li>사진 백업은 <a href="/posts/photo-backup.html">사진 백업 방법 비교</a> 글을 참고하시면 됩니다.</li></ul>
+      <ul class="tags"><li>#윈도우11</li><li>#저장공간</li><li>#C드라이브</li><li>#디스크정리</li></ul>
+      <aside class="post__note">
+        <p>이 글은 2026-08-28 기준으로 직접 확인한 내용입니다. 기기나 운영체제 버전에 따라 메뉴 이름이
+        조금씩 다를 수 있습니다. 화면이 다르거나 빠진 부분이 있으면
+        <a href="/contact.html">문의 페이지</a>로 알려주시면 확인해 반영하겠습니다.</p>
+      </aside>
+      
+    </div>
+  </div>
+</article>
+
+
+
+<section class="wrap section">
+  <h2 class="section__title">함께 보면 좋은 글</h2>
+  <div class="card-grid"><article class="card">
+  <a class="card__link" href="/posts/printer-offline.html">
+    <span class="card__cat">윈도우</span>
+    <h3 class="card__title">프린터가 &quot;오프라인&quot;으로 뜰 때 점검하는 순서</h3>
+    <p class="card__desc">프린터는 켜져 있는데 컴퓨터에서만 오프라인으로 보이는 상황을 해결하는 순서입니다. 드라이버를 다시 깔기 전에 확인할 것들부터 정리했습니다.</p>
+    <p class="card__meta"><time datetime="2026-09-03">2026-09-03</time> · 약 7분</p>
+  </a>
+</article><article class="card">
+  <a class="card__link" href="/posts/windows-shortcuts.html">
+    <span class="card__cat">윈도우</span>
+    <h3 class="card__title">매일 쓰게 되는 윈도우 단축키만 골랐습니다</h3>
+    <p class="card__desc">외울 만한 가치가 있는 단축키만 상황별로 정리했습니다. 창 정렬, 캡처, 이모지, 잘못 지운 파일 되살리기까지 실제로 손에 붙는 것들입니다.</p>
+    <p class="card__meta"><time datetime="2026-08-20">2026-08-20</time> · 약 7분</p>
+  </a>
+</article><article class="card">
+  <a class="card__link" href="/posts/windows-backup.html">
+    <span class="card__cat">윈도우</span>
+    <h3 class="card__title">윈도우 백업 3가지 방식 비교와, 나에게 맞는 것 고르기</h3>
+    <p class="card__desc">파일 백업, 시스템 이미지, 클라우드 동기화는 목적이 다릅니다. 각각 무엇을 지켜주고 무엇을 못 지키는지, 어떤 조합으로 쓰면 좋은지 정리했습니다.</p>
+    <p class="card__meta"><time datetime="2026-08-06">2026-08-06</time> · 약 7분</p>
+  </a>
+</article></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">툴노트</p>
+      <p class="footer-desc">바로 쓰는 생활 계산기와 변환기</p>
+    </div>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about.html">사이트 소개</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/rss.xml">RSS</a>
+    </nav>
+    <p class="copyright">&copy; 2026 툴노트. 이 사이트의 글과 이미지는 무단 복제를 금합니다.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+  });
+})();
+</script>
+</body>
+</html>
